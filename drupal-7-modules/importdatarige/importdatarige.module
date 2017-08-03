@@ -1,0 +1,44 @@
+<?php
+
+define('Importdatarige', 'use admin tools');
+
+/**
+ * Implements hook_menu().
+ */
+function importdatarige_menu()
+{
+    $items['admin/config/import_rige_data'] = array(
+        'title' => t('Import rige data'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('Importdatarige_form'),
+        'access arguments' => array('importdatarige'),
+        'access callback' => TRUE,
+        'type' => MENU_LOCAL_TASK,
+        'file' => 'src/includes/importdatarige.admin.inc',
+        'weight' => 100,
+    );
+    return $items;
+}
+
+function importdatarige_node_presave($node)
+{
+    $array = array('article','post','tip');
+    if(in_array($node->type,  $array)){
+    $queue_name= 'home';
+    $subqueues = entityqueue_subqueue_load($queue_name);
+    $is_there = false;
+    foreach ($subqueues->eq_node['und'] as $sub){
+        if($sub['target_id'] == $node->nid){
+            $is_there = true;
+            break;
+        }
+    }
+     if($is_there == false ){
+         $subqueues->eq_node[LANGUAGE_NONE][] = array('target_id' => $node->nid);
+         entityqueue_subqueue_save($subqueues);
+      }
+    }
+}
+
+
+
