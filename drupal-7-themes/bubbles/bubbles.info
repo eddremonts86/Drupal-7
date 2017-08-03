@@ -1,0 +1,29 @@
+name = bubbles
+description = This theme demonstrates Drupal's default HTML markup and CSS styles. To learn how to build your own theme and override Drupal's default code, see the <a href="http://drupal.org/theme-guide">Theming Guide</a>.
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = font-awesome/css/font-awesome.min.css
+stylesheets[all][] = css/animate.min.css
+stylesheets[all][] = css/creative.css
+stylesheets[all][] = css/bubblestyles.css
+
+scripts[] = js/jquery.js 
+scripts[] = js/bootstrap.min.js
+scripts[] = js/jquery.easing.min.js
+scripts[] = js/jquery.fittext.js
+scripts[] = js/wow.min.js
+scripts[] = js/creative.js
+scripts[] = js/scrit.js
+
+regions[content] = Contenido
+regions[menu_principal] = Menu Principal
+regions[footer] = Pie de pagina
+
+
+; Information added by Drupal.org packaging script on 2015-08-19
+version = "7.39"
+project = "drupal"
+datestamp = "1440020197"

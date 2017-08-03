@@ -1,0 +1,345 @@
+body {
+    background-color: #1565C0;
+    font-size: 13px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+
+}
+
+h1 {
+    font-family: 'Noto Serif', serif;
+}
+
+h1 small {
+    color: #ffffff;
+    font-family: 'Noto Serif', serif;
+}
+
+.bg-user {
+    background-color: #ffffff;
+    *background-image: url("img/fondos/fondo2.jpg");
+    color: rgba(76, 76, 76, 1);
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 100px;
+}
+#rengøringstilbud{
+    background-color: #ffffff;
+    background-image: url("img/fondos/footer.jpg");
+    position: relative;
+    margin-top: -5px;
+    text-align: left;
+    display: table;
+   /* min-height: 100%;*/
+    width: 100%;
+   /* height: 300px;*/
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: rgba(30, 34, 37, 0.9);
+    opacity: 1.8;
+}
+#Om {
+    background-color: #ffffff;
+    background-image: url("img/fondos/limpieza.jpg");
+    position: relative;
+    margin-top: -5px;
+    text-align: left;
+    display: table;
+    /*min-height: 100%;*/
+    width: 100%;
+    /*height: 300px;*/
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: rgba(30, 34, 37, 0.9);
+    opacity: 1.8;
+}
+
+.mapa {
+    background-color: #222222;
+    padding-top: 5px;
+}
+
+#Om a {
+    color: #1565C0;
+}
+
+.margen_sup {
+    margin-top: 70px;
+}
+
+
+.bah {
+    background: #1565C0;
+    margin-top: 45px;
+    color: #fff;
+    padding: 1px 10px 35px 15px;
+    min-height: 250px;
+    font-size: 18px;
+    -webkit-box-shadow: 14px 10px 27px -5px rgba(0,0,0,0.65);
+    -moz-box-shadow: 14px 10px 27px -5px rgba(0,0,0,0.65);
+    box-shadow: 14px 10px 27px -5px rgba(0,0,0,0.65);
+    border-radius: 4px;
+}
+
+
+.active_ {
+    background-color: #090909;
+}
+
+tr:hover {
+    background-color: #1565C0;
+}
+
+.mine {
+    border-color: #1565C0;
+    color: #1565C0;
+    *padding-left: 15%;
+    width: 150px;
+}
+
+.headmapa {
+    border-radius: 5px;
+    background-color: #222222;
+    width: 350px;
+    padding: 10px;
+    padding-left: 45px;
+    *margin-bottom: -40px;
+    margin-left: 36%;
+}
+
+.headmapa p {
+    font-size: 35px;
+    color: #fff;
+}
+
+#kort .row {
+    padding: -1px;
+    margin: 0px;
+}
+
+iframe {
+    width: 100%;
+    height: 700px;
+    border: 0;
+}
+
+#kort {
+    padding: 0px 0px;
+    background: -webkit-linear-gradient(top, #222222, #ffffff);
+    background: -moz-linear-gradient(top, #222222, #ffffff);
+    background: -o-linear-gradient(top, #222222, #ffffff);
+
+}
+
+.up {
+    z-index: 900;
+    position: absolute;
+    width:100%;
+    height: 700px;
+}
+
+.down {
+    z-index: 999;
+    position: absolute;
+    width: 97.7%;
+    height: 460px;
+    background: rgba(251, 255, 251, 0.2);
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.headkort {
+    height: 700px;
+    background: rgba(21, 101, 192, 0.9);
+    padding-top: 45px;
+    width: 100%;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.headkort h1 {
+    color: #fff !important;
+    text-align: center;
+}
+
+.caja {
+    background: rgba(21, 101, 192, 0.0);
+    border: 3px;
+    border-color: #222;;
+    color: white;
+    padding: 10px;
+    margin:0px
+}
+
+.stik {
+    color: rgb(255, 255, 255);
+}
+
+.arrow {
+    margin-left: 50%;
+    color: #1565C0;
+    border: 0px solid #1565C0;
+    border-radius: 50%;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+#headmapa {
+    margin-top: -20px;
+    color: #fff;
+}
+
+#headmapa_down {
+    margin-top: 0px;
+    color: #fff;
+}
+
+iframe .i4ewOd-pzNkMb-haAclf {
+    background-color: #000000
+}
+
+.modal-body {
+    background: #1565C0;
+    color: white;
+    padding: 20px;
+}
+
+.modal-body input {
+    background: white;
+    border-radius: 4px;
+    color: #00232c;;
+    border: #002240 2px;
+}
+
+.modal-body input[type="submit"] {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+}
+
+.modal-body textarea {
+    color: #00232c;
+}
+
+.modal-body a {
+    color: #1565C0;
+}
+
+a {
+    color: #1565C0;
+    text-decoration: none;
+    -webkit-transition: all .55s;
+    -moz-transition: all .55s;
+    transition: all .55s;
+}
+
+a:hover {
+    color: #1565C0;
+    text-decoration: none;
+    -webkit-transition: all .55s;
+    -moz-transition: all .55s;
+    transition: all .55s;
+}
+
+.marker, .form-required {
+    color: white;
+}
+
+/*Saccion Video*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background-wrap {
+    position: fixed;
+    z-index: -1000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    color: white;
+    margin-top: -8px;
+}
+
+.header-content-inner a {
+    color: white;
+}
+
+.header-content-inner {
+    color: white;
+}
+
+#video-bg-elem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.content_v {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    z-index: 1000;
+    background-color: rgba(10, 42, 98, 0.5);
+}
+
+.content_v h1 {
+    text-align: center;
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 15%;
+    margin-bottom: 10px;
+}
+
+.content_v p {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+.color_b {
+    color: #1565C0;
+}
+.active_blue {
+    background-color: #1565C0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fa-xx {
+    font-size: 6em;
+}

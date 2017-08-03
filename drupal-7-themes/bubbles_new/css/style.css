@@ -1,0 +1,136 @@
+body {
+    background-color: #005DA4;
+}
+
+h1 small {
+    color: #ffffff;
+}
+
+.bg-user {
+    background-color: #ffffff;
+    color: rgba(76, 76, 76, 1);
+}
+
+#Om {
+    background-color: #ffffff;
+}
+
+.mapa {
+    background-color: #222222;
+    padding-top: 5px;
+}
+
+#Om a {
+    color: #005DA4;
+}
+
+.margen_sup {
+    margin-top: 70px;
+}
+
+.active_ {
+    background-color: #090909;
+}
+
+tr:hover {
+    background-color: #005DA4;
+}
+
+.mine {
+    border-color: #005DA4;
+    color: #005DA4;
+}
+
+.headmapa {
+    border-radius: 5px;
+    background-color: #222222;
+    width: 350px;
+    padding: 10px;
+    padding-left: 45px;
+    *margin-bottom: -40px;
+    margin-left: 36%;
+}
+
+.headmapa p {
+    font-size: 35px;
+    color: #fff;
+}
+
+#kort .row {
+    padding: -1px;
+    margin: 0px;
+}
+
+iframe {
+    width: 100%;
+    height: 700px;
+    z-index: 0;
+    border: 0;
+}
+
+#kort {
+    padding: 0px 0px;
+    background: -webkit-linear-gradient(top, #222222, #ffffff);
+    background: -moz-linear-gradient(top, #222222, #ffffff);
+    background: -o-linear-gradient(top, #222222, #ffffff);
+}
+
+.up {
+    z-index: 900;
+    position: absolute;
+    width: 100%;
+    height: 520px;
+}
+
+.down {
+    z-index: 999;
+    position: absolute;
+    width: 97.7%;
+    height: 460px;
+    background: rgba(251, 255, 251, 0.5);
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.headkort {
+    height: 700px;
+    background: rgba(0, 0, 0, 0.4);
+    padding-top: 45px;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.headkort h1 {
+    color: #fff !important;
+    text-align: center;
+}
+
+.caja {
+    background: rgba(34, 34, 34, 0.92);
+    border: 3px;
+    border-color: #222;;
+    color: white;
+    padding: 10px;
+    margin:0px
+}
+
+.stik {
+    color: rgb(255, 255, 255);
+}
+
+/*Saccion mapa*/
+
+/*Cabecera del mapa*/
+iframe .i4ewOd-pzNkMb-haAclf {
+    background-color: #000000
+}
+
+.modal-body input {
+    background: white;
+    border-radius: 2px;
+    color: black;
+}
+
+.modal-body a {
+    color: darkcyan;
+}
