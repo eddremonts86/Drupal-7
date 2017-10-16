@@ -1,0 +1,46 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Home';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  main
+    article.main
+      
+      
+      div.row.row-cols.main
+        dic.col-side
+          include ./partials/blocks/lasts-news.jade
+          include ./partials/blocks/banner-ads-2.jade
+        div.col-main
+          include ./partials/blocks/list-col-top-home-articles.jade
+      
+      
+      div.row.row-cols
+          dic.col-main
+            include ./partials/blocks/block-iframe-shedule.jade
+          div.col-side
+            include ./partials/blocks/list-col-med-home-articles.jade
+
+      div.row
+          include ./partials/blocks/list-col-last-home-articles.jade
+
+      div.row
+          include ./partials/blocks/seo-content.jade
+      
+
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

@@ -1,0 +1,110 @@
+// main layout sidebar structure
+body > .container >main{
+  position: relative;
+  @include cf();
+}
+
+body > .container > header {
+  h1 {
+    display: inline;
+  }
+}
+article.main {
+  width: calc(100% - 260px);
+  float: left;
+  overflow: hidden;
+  > .row {
+    margin:0 0 10px 0;
+  }
+}
+sidebar.main {
+  width: 250px;
+  height: 100%;
+  position: relative;
+  float: right;
+  top: 0;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+
+.row-cols {
+  .col-main {
+    width: calc( ((100% - 10px) / 3) *2);
+    float: left;
+  }
+  .col-side {
+    width: calc( ((100% - 10px) / 3));
+    float: right;
+  }
+  &.main{
+    .col-main {
+      float: right;
+    }
+    .col-side {
+      float: left;
+    }
+
+  }
+}
+
+
+//general cols
+.row.list-cols , .row.list-tops{
+  margin: 0;
+}
+.row-cw-cols {
+  .list-cols:last-child {
+    margin-bottom: 0;
+  }
+}
+//structure 2cols items
+ .row.list-cols {
+  @include cf();
+  margin-bottom: 10px;
+  article {
+    float: left;
+    width: calc( (100% - 10px) / 2);
+  }
+  article:first-child {
+    float: left;
+  }
+  article:last-child {
+    float: right;
+  }
+  
+
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+  }
+
+ }
+
+//structure 3cols items
+  .list-cols.cols3 {
+    article {
+      float: left;
+      width: calc( (100% - 20px) / 3);
+    }
+    article {
+      float: left;
+      margin-right: 10px;
+    }
+    article:last-child {
+      float: left;
+      margin-right: 0;
+    }
+
+ }
+
+//fixed sidebar
+sidebar.main.fixed {
+  position: fixed;
+  right: initial;
+   z-index: 50;
+}
+
+.row.main-article.unpublished {
+  background-color: rgb(250, 249, 186);
+}

@@ -1,0 +1,84 @@
+aside.info-tip {
+  background: #EEEEED;
+  margin: 20px;
+  padding: 20px;
+  @include cf();
+  .col{
+    width: 50%;
+    float: left;
+    &:last-child {
+      width:50%;
+    }
+
+    @include text-font(14px,normal,18px);
+    color: $c-text-b;
+  }
+
+
+  p:not(.text){
+    position: relative;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    @include cf();
+    &:before {
+      position: relative;
+      float: left;
+      content: '';
+      top: -10px;
+      left: 0;
+      background: url(../files/img/ico-doc.png) no-repeat;
+      display: block;
+      width: 36px;
+      height: 36px;
+      background-size: 36px;
+      margin-right: 10px;
+    }
+
+  }
+  p {
+    @include title-font(14px,normal,18px);
+    color: $c-text-b;
+  }
+  p a {
+    @include title-font(14px,normal,18px);
+    color: #CD5933;
+
+  }
+  p.odds a{
+    @include title-font(14px,normal,18px);
+    color: $c-text-b;
+  }
+  strong {
+    @include title-font(14px,600,18px);
+    color: $c-text-b;
+  }
+
+  .play {
+    @include cf();
+    position: relative;
+    padding: 15px 0;
+    &:after {
+      position: absolute;
+      content: '';
+      top: 8px;
+      left: 15px;
+      float: left;
+      background: url(../files/img/bg-play.png) no-repeat;
+      display: block;
+      width: 225px;
+      height: 50px;
+      background-size: 225px 45px;
+    }
+    .btn {
+      float: right;
+    }
+  }
+
+  p.tip {
+    strong {
+      @include title-font(14px,normal,18px);
+      color: #CD5933;
+    }
+  }
+}
+

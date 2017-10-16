@@ -1,0 +1,42 @@
+.buttons-social-share {
+	@include cf();
+	text-align: right;
+	padding: 15px 0;
+	li {
+		display: inline-block;
+		padding-right: 15px; 
+		a {
+			padding: 10px;
+			display: block;
+			background: #bbb;
+			text-decoration: none;
+			border-radius: 4px;
+			color: $c-text-w;
+			i {
+				color: $c-text-w;
+				margin-right: 10px;
+			}
+		}
+	}
+	a.fb {
+		background-color: #405e99; 
+		&:hover {
+			background-color:  darken(#405e99,10%); 
+		}
+	}
+
+	a.gp {
+		background-color: #c84225; 
+		&:hover {
+			background-color: darken(#c84225,10%); 
+		}
+	}
+
+	a.tw {
+		background-color: #6cbaed; 
+		&:hover {
+			background-color: darken(#6cbaed,10%); 
+		}
+	}
+
+}

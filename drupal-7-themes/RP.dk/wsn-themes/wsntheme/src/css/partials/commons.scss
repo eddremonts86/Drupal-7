@@ -1,0 +1,282 @@
+ //default text & options
+ body {
+  @include main-font(14px,regular,18px);
+  font-weight: 400;
+  font-size: 14px;
+  color: #888;
+  line-height: normal;
+  background-color: $c-bgpage;
+  width: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+//utils
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+//reset container
+body > .container {
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+
+//default links
+a {
+  text-decoration: none;
+  color: $c-primary;
+  transition: $a-color;
+  transition: $a-bg-color;
+}
+
+a:hover {
+  color: $c-primary-alt;
+}
+
+
+i.fa {
+  margin-right: 3px;
+}
+
+//font-awesome circles icons
+
+.cw-btn-circle {
+  .fa-stack-2x {
+    color: #323b8a;
+    font-size: 30px;
+  }
+  .fa-stack-1x {
+    color: #fff;
+    font-size: 15px;
+    top: -3px;
+  }
+  .fa-google-plus {
+    font-size: 12px;
+    left: 2px;
+  }
+}
+
+//buttons
+.btn.btn-default {
+  border: 0;
+  background-color: $c-btn;
+  @include title-font(14px,normal,16px);
+  color: $c-text-w;
+  text-transform: uppercase;
+  padding: 6px 9px;
+
+  &:hover {
+    background-color: $c-btn-active;
+  }
+}
+
+.btn.btn-play {
+  border: 0;
+  background-color: #cd5933;
+  @include title-font(20px,normal,24px);
+  color: $c-text-w;
+  text-transform: uppercase;
+  padding: 12px 18px;
+
+  &:hover {
+   background-color: darken(#cd5933,5%);
+  }
+}
+
+//thumbnail
+.thumbnail  {
+  background: none;
+  padding: 0;
+  margin-bottom: 20px;
+  border: 0;
+  border-radius: 0;
+}
+
+//label
+.label.label-default {
+  padding: 8px 8px;
+  border: 0;
+  border-radius: 0;
+  color: $c-text-w;
+  @include main-font($w:500);
+  text-transform: uppercase;
+  background: #bbb;
+
+  &.sec-news {
+    background-color: $c-sec-news;
+  }
+  &.sec-tips {
+    background-color: $c-primary;
+  }
+  &.sec-blog {
+    background-color: $c-sec-blog;
+  }
+} 
+
+
+//iframe
+iframe {
+  width: 100%;
+}
+
+.img-iframe {
+  width: 100%;
+}
+
+//Breacrumb
+.breadcrumb {
+  border: 0;
+  background-color: $c-text-b;
+  padding: 4px 10px;
+  margin-bottom: 0;
+  border-radius: 0;
+  li {
+    display: inline;
+  }
+  li, a ,.active{
+    @include main-font(14px,normal,24px);
+    color: #bbbbbb;
+  }
+}
+
+
+//pager
+.pager {
+  text-align: center;
+}
+
+body .pagination {
+  li{
+    position: relative;
+    background: transparent;
+    display: inline-block;
+  }
+  li, a, em{
+    @include title-font(14px,normal,24px);
+    color: $c-primary;
+    background: none;
+    border: 0;
+  }
+  em {
+    display: inline-block;
+    padding: 5px 14px;
+    float: left;
+  }
+  li.active {
+    &:after {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 35px;
+      height: 35px;
+      border-radius: 50px;
+      top: 0;
+      left: 0;
+      border: 1px solid;
+      z-index: 100;
+    }
+    a, a:hover {
+      background: none;
+      color: $c-primary;
+      position: relative;
+      z-index: 50;
+    }
+  }
+  li:hover {
+    a {
+      background: none;
+      color: $c-primary;
+    }
+  }
+
+}
+
+//fake iframes
+.shedule-content {
+  height: 2900px;
+}
+
+//steps
+nav.steps {
+  margin-bottom: 20px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    @include title-font(14px,normal,16px);
+    color: $c-text-b;
+  }
+
+  li:not(:last-child){
+    position: relative;
+    padding-left: 45px;
+    padding-top: 5px;
+    padding-right: 35px;
+    &:before {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      color: $c-text-w;
+      z-index: 50;
+      @include main-font(22px,normal,26px);
+    }
+    &:after {
+      display: block;
+      position: absolute;
+      top: -4px;
+      left: 0;
+      content: '';
+      width: 35px;
+      height: 35px;
+      background: $c-text-b;
+      border-radius: 50%;
+      z-index: 10;
+    }
+  }
+
+
+  li:nth-child(1){
+    &:before {
+      content: '1';
+    }
+  }
+
+  li:nth-child(2){
+    &:before {
+      content: '2';
+    }
+  }
+
+  li:nth-child(3){
+    &:before {
+      content: '3';
+    }
+  }
+
+  li.play {
+    position: relative;
+    padding-left: 235px;
+    &:before {
+      position: absolute;
+      content: '';
+      top: -2px;
+      left: 0;
+      background: url(../files/img/bg-play.png) no-repeat;
+      display: block;
+      width: 225px;
+      height: 50px;
+      background-size: 225px 45px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Tips';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='index.html') Home
+    li.active Tips
+  main
+    article.main
+      
+      div.row 
+        .page-header
+          h1
+            | Tips
+            small Short intro to this page short intro to this page. Short intro to this page short intro to this page.
+    
+      div.row
+          include ./partials/blocks/list-posts-articles.jade
+      
+
+      div.row
+          include ./partials/blocks/pager.jade
+        
+
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

@@ -1,0 +1,152 @@
+.less_anchor{ width: 41% !important;}
+
+.btn_whidth {width:auto !important;}
+
+.container > header .navbar-form .form-item-keys {
+    display: inline-block;
+}
+.container > header .navbar-form .form-item-keys input{
+      display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    background-color: #0a3f8d;
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    padding: 25px 10px;
+    width: 80px;
+}
+.container > header .navbar-form .form-item-keys label{
+   display: none;
+}
+
+.container > header .navbar-form .form-submit {
+    display: inline-block;
+    border: 0;
+    font-weight: normal;
+    line-height: 16px;
+    color: #FBFBFB;
+    text-transform: uppercase;
+    background: #123f8d url(files/ico-search.png) no-repeat 0 17px;
+    font-size: 0;
+    height: 50px;
+    padding: 23px 16px;
+}
+
+#edit-keys:focus, #edit-keys--2:focus {
+    outline: none;
+}
+#edit-keys:-moz-placeholder {
+  color: #999 !important;
+  opacity: 1;
+  font-weight: bold;
+}
+
+#edit-keys:-ms-input-placeholder {
+  color: #999 !important;
+  font-weight: bold;
+}
+
+#edit-keys::-webkit-input-placeholder {
+  color: #999 !important;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) { 
+  body #wsn-main-menu li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+  }
+}
+
+
+
+#edit-keys--2::-webkit-input-placeholder {
+   color: #999 !important;
+  opacity: 1;
+  font-weight: bold;
+}
+
+#edit-keys--2:-moz-placeholder { /* Firefox 18- */
+  color: #999 !important;
+  font-weight: bold;
+}
+
+#edit-keys--2::-moz-placeholder {  /* Firefox 19+ */
+ color: #999 !important;
+  font-weight: bold;
+}
+
+#edit-keys--2:-ms-input-placeholder {  
+  color: #999 !important;
+  font-weight: bold;
+}
+
+
+
+.navbar-form .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.navbar-form .form-control:-moz-placeholder {
+  color: #fff;
+}
+
+.navbar-form .form-control::-moz-placeholder {
+  color: #fff;
+}
+
+.navbar-form .form-control:-ms-input-placeholder {
+  color: #fff;
+}
+
+.navbar-form .form-control::placeholder {
+  color: #fff;
+}
+
+#wsn-main-menu .navbar-nav.main-menu span {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #BCBBBB;
+    padding: 16px 10px;
+    display: block;
+}
+
+
+
+/*----------------------  SE_bookmacker  ----------------------*/
+
+.book_se a{
+    width:100% !important;
+     text-decoration: none;
+}
+.book_se a img{
+    width: 65px !important;
+    height: auto;
+}
+.disp_line{
+    display: inline-block;
+}
+.book_se .btn.btn-default{
+    font-size: 11px;
+}
+@media screen and (max-width: 1000px) {
+    .book_se a img{
+        width: 38px !important;
+        height: auto;
+    }
+}

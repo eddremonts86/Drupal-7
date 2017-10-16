@@ -1,0 +1,49 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Bookmarkers';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='index.html') Home
+    li.active Bookmakers
+  main
+    article.main
+      
+      div.row 
+        .page-header.media-header
+          header
+            h1
+              | Bookmakers – which one to choose?
+            .cms
+              p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+              p Choose another categorie:
+
+          figure.mda
+            a(href="#")
+              img(src="files/img/wsnba-2.png", alt="")
+    
+      div.row
+          include ./partials/blocks/list-bookmarkers.jade
+      
+
+      div.row
+          include ./partials/blocks/seo-content.jade
+          
+
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

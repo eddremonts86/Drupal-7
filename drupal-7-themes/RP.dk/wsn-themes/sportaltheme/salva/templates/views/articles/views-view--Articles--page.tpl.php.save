@@ -1,0 +1,32 @@
+        <div class="row"> 
+          <?php 
+            $region =  block_get_blocks_by_region('header_news_list'); 
+            if(!empty($region)){
+              $region = array_values($region);
+            }
+          ?>
+          <div class="page-header">
+            <h1><?php var_dump()region print $region['0']['#block']->subject ?></h1>
+            <div class="cms">
+              <?php print $region['0']['#markup'] ?>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <section>
+             <?php if ($rows){ ?>
+                    <?php print $rows; ?>
+                <?php  } elseif ($empty){ ?>
+                  <div class="view-empty-rols">
+                    <?php print $empty; ?>
+                  </div>
+                <?php } // endif; ?>
+          </section>
+        </div>
+        <div class="row">
+          <nav class="pager">
+            <?php if ($pager): ?>
+                <?php print $pager; ?>
+            <?php endif; ?>
+          </nav>
+        </div>

@@ -1,0 +1,37 @@
+include ../mixins/qc-lib
+include ../mixins/bootstrap-mixins
+
+- var pageClass = '';
+block vars
+
+doctype html
+html(lang="en")
+  head
+    include ../partials/site/head.jade
+    title #{pageTitle} | WSN
+    block css
+
+
+
+body
+  .container
+    block header
+
+    block content
+    
+    block footer
+
+
+  //- templates js
+  //include ../../js/templates/typeahead.tpl.html
+  block jstemplates  
+
+  +addJs('src/js/vendors/jquery-2.2.3.min.js')
+  +addJs('src/css/vendors/bootstrap/assets/javascripts/bootstrap.min.js')
+  +addJs('src/js/vendors/lodash.js')
+  +addJs('src/js/vendors/handlebars-v4.0.5.js')
+  +addJs('src/js/vendors/ScrollToFixed/jquery-scrolltofixed.js')
+  +addJs('src/js/vendors/jquery-match-height/jquery.matchHeight.js')
+  +addJs('src/js/app.js')
+  block javascripts
+

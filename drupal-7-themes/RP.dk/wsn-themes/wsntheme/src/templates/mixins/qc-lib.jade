@@ -1,0 +1,17 @@
+mixin addJs(path,type)
+  - type = type || "text/javascript"
+  script(
+    src=path
+    type=type
+  )
+
+mixin fa-ico(name)
+  - name = name || "pied-piper-alt"
+  i.fa(class="fa-#{name}", aria-hidden='true')
+  
+mixin fa-ico-circle(name,extra_class)
+  - name = name || "pied-piper-alt"
+  - extra_class = extra_class || ''
+  span.fa-stack.fa-lg.cw-btn-circle(class="cw-btn-#{name}")
+    i.fa.fa-circle.fa-stack-2x
+    i.fa.fa-stack-1x(class="fa-#{name} #{extra_class}")

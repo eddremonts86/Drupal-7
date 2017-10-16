@@ -1,0 +1,42 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Tip Detail';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='index.html') Home
+    li
+      a(href='list-tips.html') Tips
+    li.active Football transfer rumours: Paul Pogba to Manchester City? 
+  main
+    article.main
+      .row.main-article
+        include ./partials/blocks/details/header-detail-new-tip.jade
+
+        include ./partials/blocks/details/content-text-tips.jade
+
+        include ./partials/blocks/buttons-social-share.jade
+
+        include ./partials/blocks/details/block-info-tip.jade
+
+      include ./partials/blocks/block-user-info.jade
+
+
+
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

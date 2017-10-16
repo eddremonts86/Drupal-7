@@ -1,0 +1,35 @@
+//logos
+.container > header .navbar-brand img {
+  width: 85%;
+}
+.container > footer .navs .logo {
+  right: -10px;
+  img {
+    width: 80%;
+  }
+}
+
+//breadcrumb
+.breadcrumb > li + li:before {
+  content: "\00bb ";
+}
+
+//adjustment images list
+.thumbnail > img, .thumbnail a > img {
+  min-width: 100%;
+}
+
+//search page
+article.main {
+  .search-form {
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 0;
+  }
+  .search-advanced {
+    margin: 20px 0;
+  }
+  .criterion:first-child label {
+    display: block;
+  }
+}

@@ -1,0 +1,74 @@
+.container > footer {
+  background: $c-primary;
+  position: relative;
+  z-index: 100;
+  .navs {
+    
+    .logo {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      img{
+        width: 68px;
+        height: auto;
+      }
+    }
+    section {
+      padding: 30px 20px 30px 0;
+      position: relative;
+    }
+    > div:first-child section {
+        padding-left: 40px;
+    }
+    section h2 {
+      margin: 0;
+      padding: 0;
+      color: $c-text-p-alt;
+      @include title-font($lh:24px);
+      padding-bottom: 10px;
+      border-bottom: 2px solid $c-primary-alt;
+      margin-bottom: 10px;
+    }
+  }
+  .nav-pills > li > a {
+    @include title-font(13px,normal,21px);
+    color: $c-text-w;
+    border-radius:0;
+    padding: 2px 0;
+    &:hover {
+      background: none;
+      text-decoration: underline;
+    }
+    &.active-trail.active {
+      background: none;
+    }
+  }
+
+  //copy
+  .copy {
+    border-top: 2px solid $c-primary-alt;
+    margin: 0;
+    padding: 30px 0 10px;
+    text-align: center;
+
+    .link-socials {
+      display: inline-block;
+      margin: 0 0 5px 0;
+      padding: 0;
+      @include title-font();
+      li{
+        display: inline-block;
+      }
+      .cw-btn-circle {
+        .fa-stack-2x {
+          color: #6670ad;
+        }
+      }
+    }
+
+    p{
+      margin-bottom: 0;
+      color: $c-text-p-alt;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Shedule';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='#') Home
+    li.active Shedule
+  main
+    article.main
+      
+      div.row 
+        .page-header.detail
+          h1
+            | League name
+          .cms
+            p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+    
+      div.row
+          include ./partials/pages/shedule-content-iframe.jade
+      
+
+  
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

@@ -1,0 +1,33 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'Bookmarker Detail';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='index.html') Home
+    li
+      a(href='list-bookmarkers.html') Bookmarkers
+    li.active Bookmaker review
+  main
+    article.main
+      .row.main-article.main-bookmarker
+        include ./partials/blocks/details/header-detail-bookmarker.jade
+
+        include ./partials/blocks/details/content-text-bookmarker.jade
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

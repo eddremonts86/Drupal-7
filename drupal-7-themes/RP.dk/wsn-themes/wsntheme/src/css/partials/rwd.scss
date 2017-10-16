@@ -1,0 +1,561 @@
+.container > footer {
+	z-index: 1000;
+}
+sidebar .list-bookmarkers { 
+	max-height: auto !important;
+}
+@media screen and (max-width: 1200px) { body {
+	#wsn-main-menu .navbar-nav.main-menu a {
+		padding-left: 10px;
+	}
+	.pager {
+		margin: 0;
+	}
+	.pagination {
+		margin-top: 10px;
+	}
+	// arrow play
+	aside.info-tip .play:after {
+		background-size: 215px 45px;
+	}
+	aside.info-tip .col:first-child,
+	aside.info-tip .col:last-child  {
+		width: 50%;
+	}
+
+	//bookmarker deail
+	nav.steps li.play {
+		padding-left: 0;
+		&:before {
+			display: none;
+		}
+	}
+}}
+
+@media screen and (max-width: 992px) { body {
+	//layout ajust
+	article.main {
+		width: calc(100% - 210px);
+	}
+	sidebar.main {
+		width: 200px;
+	}
+
+	//titles list
+	.list-last h3 a,  .list-med h3 a, .list-cols h3 a , .list-tops .row h3 a, .list-items-simple-media h3 a{
+		//@include title-font(15px,normal,15px);
+		//display: block;
+	}
+	.list-last div.caption p, .list-tops div.caption p, .list-med div.caption p, .list-cols div.caption p {
+		//@include text-font(12px,normal,12px);
+		//display: block;
+	}
+	//col iframe shedule
+	.row-cols iframe.shedule {
+    	min-height: 575px;
+	}
+
+	//block last news
+	.list-items-simple-media .media-left {
+		display: block;
+		width: 100%;
+		clear: both;
+		img {
+			margin-bottom: 10px;
+		}
+	}
+	.list-items-simple-media ul li {
+		&:nth-child(n+4){
+			display: none;
+		}
+	}
+	//footer ajust
+	.container > footer .navs > div:nth-child(3) section{
+		padding-left: 40px;
+	}
+
+	// arrow play
+	aside.info-tip .play:after {
+		background-size: 125px 25px;
+    	top: 20px;
+	}
+
+	//social buttons detail
+	.buttons-social-share  {
+		text-align: center;
+		ul {
+			padding: 0;
+		}
+	}
+	.buttons-social-share li {
+		padding: 0 5px;
+	}
+	
+	//sidebar block bookmarkers
+	.list-bookmarkers .btn.btn-default {
+		padding: 6px;
+		font-size: 12px;
+	}
+
+	//detail bookmarker
+	.main-bookmarker .info-bookmarker ul ,
+	.main-bookmarker .info-bookmarker .info-country
+	{
+		left: 30%;
+	}
+	.main-bookmarker .info-bookmarker ul strong {
+		font-size: 14px;
+	}
+
+	nav.steps li:not(:last-child) {
+		padding-left: 33px;
+    	padding-right: 15px;
+    	padding-top: 0;
+    	font-size: 13px;
+	}
+	nav.steps li:not(:last-child):before {
+		font-size: 18px;
+		top: -4px;
+    	left: 8px;
+	}
+	nav.steps li:not(:last-child):after {
+		top: -4px;
+		width: 25px;
+    	height: 25px;
+	}
+	nav.steps li.play {
+		.btn.btn-play {
+			padding: 10px;
+		}
+	}
+	.container > footer .col-sm-6:nth-child(2n+3) {
+		clear: both;
+		float: left;
+	}
+}}
+
+@media screen and (max-width: 768px) { body {
+	.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+		margin: 0;
+		padding: 0;
+	}
+	> .container {
+		overflow: hidden;
+	}
+
+	.container > footer .navs section {
+		padding-left: 40px;
+	}
+	.navbar-toggle {
+		border: none;
+	}
+	.navbar-toggle .icon-bar {
+		height: 4px;
+		margin-bottom: -2px;
+		background-color: $c-text-w !important;
+	}
+	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+		background-color: transparent;
+	}
+	.navbar-default .navbar-brand {
+	    padding-left: 0;
+	}
+	.main-article header > figure img {
+		width: 100%;
+		height: auto;
+	}
+	.shedule-content {
+		height: 600px;
+	}
+	article.main .page-header.detail .cms {
+		width: 100%;
+	}
+	 .col-side.m-rwd {
+	 	margin-bottom: 10px;
+	 	.list-items-simple-media {
+	 		//display: none;
+	 	}
+	 	.media {
+	 		margin-bottom: 10px;
+	 	}
+	 }
+
+	 .row-cols iframe.shedule {
+		min-height: 300px;
+		margin-bottom: 10px;
+	 }
+
+}}
+
+@media screen and (max-width: 768px) { body {
+	//layout ajust
+	article.main , sidebar.main {
+		width: 100%;
+		clear: both;
+		float: none;
+		position: relative !important;
+		left: 0 !important; 
+	}
+
+	.list-bookmarkers{
+		background-color: $c-text-w;	
+	}
+	.navbar-nav {
+		margin: 0;
+	}
+	.container > header .icons-social {
+		padding: 0px 0 20px;
+		li {
+			display: inline-block;
+		}
+	}
+	.container > header .navbar-form {
+		margin: 0;
+	}
+	.navbar-form .form-group {
+		display: inline-block;
+    	position: relative;
+	}
+	#wsn-main-menu form {
+    	font-size: 0;
+    	padding-bottom: 6px;
+	} 
+	.container > header .navbar-form .form-control {
+		position: relative;
+		top: 6px;
+    	height: 47px;
+    	display: block;
+    	padding: 15px 15px;
+	}
+
+	.row-cols.main .col-main , .row-cols.main .col-side, .row-cols .col-main, .row-cols .col-side
+	, .list-tops .row article
+	, .list-last article
+	, .list-cols article
+	, .row.list-cols article
+	{
+		width: 100%;
+		float: none;
+		clear: both;
+	}
+	.row-cols.main .col-side .media{
+		margin-bottom: 10px;
+	}
+	.list-items-simple-media .media-left {
+		padding-right: 0;
+	}
+
+	aside.info-tip .col:first-child, aside.info-tip .col:last-child {
+		width: 100%;
+	}
+	aside.info-tip p.team{
+		padding-top: 0;
+		&:before {
+			top: 0;
+		}
+		.time {
+			display: block;
+		}
+	}
+	aside.info-tip p.odds{
+		padding-top: 0;
+		&:before {
+			top: 0;
+		}
+		span {
+			display: block;
+		}
+	}
+	aside.info-tip p.tip{ 
+		margin-bottom: 0;
+	}
+	aside.info-tip .play {
+		padding: 0;
+		&:after {
+			display: none;
+		}
+		.btn-play {
+			float: none;
+			display: block;
+			padding-top: 6px;
+			padding-bottom: 6px;
+		}
+	}
+
+	.main-article main .gallery {
+		a {
+			width: 100%;
+			float: none;
+			margin-bottom: 20px;
+			display: block;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+
+	.btn.btn-play {
+		float: none;
+		display: block;
+	}
+
+	.buttons-social-share {
+		li{
+			width: 30%;
+		}
+		a {
+			font-size: 0;
+			text-align: center;
+			i {
+				font-size: 18px;
+				margin-right: 0;
+			}
+		}
+	}
+
+	.list-items-simple-media .media-left {
+		display: table-cell;
+	    width: 36%;
+	    clear: none;
+	    padding-right: 2% !important;
+		img {
+			margin-bottom: 10px;
+		}
+	}
+	.list-items-simple-media ul li {
+		&:nth-child(n+4){
+			display: block;
+		}
+	}
+
+	//list bookmarkers
+	article.main .page-header.media-header header {
+		width: 100%;
+		float: none;
+		margin-bottom: 10px;
+	}
+	article.main .page-header.media-header figure {
+		float: none;
+		width: 100%;
+	}
+
+	//bootmarker button review
+	article.bookmarkers .options a:not(.btn) {
+		width: calc(50% - 5px);
+		padding: 12px 0 11px;
+		border: 1px solid #BCBBBB;
+		text-align: center;
+		border-radius: $btn-br;
+	}
+	article.bookmarkers .options a.btn {
+		width: calc(50% - 5px);
+		padding: 12px 0;
+		border-radius: $btn-br;
+	}
+
+	//bookmarker detail
+	.main-article main .cw-btn-play {
+		margin-top: 20px;
+		strong {
+			display: none;
+		}
+	}
+	nav.steps li {
+		display: block;
+	}
+	.bookmarkers-vs-content {
+		border: 0;
+	}
+	.bookmarkers-vs-content .list-cols {
+		article {
+			float: none;
+			width: 100%;
+			border: 0;
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+			border-bottom: 1px solid #EEEEED;
+
+		}
+	}
+	//header bookmarker
+	.main-bookmarker .info-bookmarker {
+		position: relative;
+		bottom: initial;
+		margin-top: -100px;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #EEEEED;
+	}
+	.main-bookmarker .info-bookmarker div.points {
+		position: relative;
+		top: 0;
+		left: 0;
+		margin-bottom: 40px;
+	}
+	.main-bookmarker .info-bookmarker ul,
+	.main-bookmarker .info-bookmarker .info-country {
+		position: relative;
+		top: 0;
+		left: 0;
+		@include main-font(14px,normal,18px);
+		color: $c-text-b;
+	}
+	.main-bookmarker .info-bookmarker ul {
+		li {
+			display: block;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		strong, span {
+			display: inline-block;
+			margin-right: 5px;
+			color: $c-text-b;
+		}
+		strong {
+			font-weight: bold;
+		}
+	}
+	.main-article.main-bookmarker header > figure:before {
+		background-position: 0 35%;
+	}
+
+	//list articles margins
+	.list-tops .row article:first-child {
+		margin-bottom: 10px;
+	}
+	.list-last article {
+		margin-bottom: 10px;
+	}
+	
+	//list tips / news with min thumb
+	.row.list-cols.cols3 , .block-list-articles .list-last{
+		margin-bottom: 0;
+		article:not(.bookmarkers){
+			main {
+				@include cf();
+				padding: 15px 15px 10px;
+				border-bottom: 1px solid #DFDFDF;
+				background-color: #EEEEED;
+			}
+			strong.sp:before {
+				background-color: #DFDFDF;
+			}
+			.thumbnail {
+				width: 40%;
+				float: left;
+				margin: 0;
+				a {
+					display: block;
+					height: 90px;
+					overflow: hidden;
+					margin-bottom: 5px;
+				}
+			}
+			.caption {
+				width: 58%;
+				float: right;
+				padding-bottom: 28px;
+				&.sp {
+					padding-bottom: 22px;
+				}
+				.label {
+					display: none;
+				}
+			}
+			h3 {
+				margin-top: 0;
+				margin-bottom: 10px;
+				padding-bottom: 0;
+				border-bottom: 0;
+				a {
+					font-size: 18px;
+					line-height: 22px;
+					display: block;
+				}
+			}
+			p {
+				display: none;
+			}
+			strong.sp {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				left: 0;
+				em , a{
+					background-color: #EEEEED;
+				}
+			}
+			/*
+			time {
+				position: absolute;
+				bottom: 0;
+				left: -70%;
+				@include text-font(13px,normal,16px);
+				color: #626261;
+			}
+			*/
+		}
+		
+	}
+
+	.thumbnail > img, .thumbnail a > img {
+		width: 100%;
+	}
+	.list-last .thumbnail, .list-tops .thumbnail, .list-med .thumbnail, .list-cols .thumbnail {
+		max-height: initial;
+	}
+
+	article.main > .row:nth-child(3) {
+		margin-bottom: 0;
+	}
+	.main-article .main .cms, .main-article main .cms {
+		padding: 0;
+	}
+	.pager {
+		margin-bottom: 10px;
+	}
+
+	.list-bookmarkers {
+		position: fixed;
+		bottom:0;
+		left: 0;
+		width: 100%;
+		box-shadow: 0px -10px 10px 0px rgba(0,0,0,0.5);
+		z-index: 1001;
+		transition: max-height 1s cubic-bezier(0.96, 0.41, 0, 1.02);
+		&.active {
+			max-height: 100% !important;
+		}
+	}
+		> .container {
+		position: relative;
+		z-index: 100;
+	}
+
+	section.list-bookmarkers {
+		h2 {
+			position: relative;
+			&:after {
+				display: block;
+				content: $fa-var-angle-double-up;
+				font-family: FontAwesome;
+				font-size: 14px;
+				color: #333;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+		}
+		&.active {
+			h2:after {
+				content: $fa-var-angle-double-down;
+			}
+		}
+	}
+	.container > footer .col-sm-6:nth-child(2n+3) {
+		clear: both;
+		width: 100%;
+	}
+}}

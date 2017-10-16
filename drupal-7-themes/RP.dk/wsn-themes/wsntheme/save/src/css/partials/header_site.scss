@@ -1,0 +1,98 @@
+.container > header {
+
+  .navbar-default  {
+    background-color: $c-primary;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 10px solid $c-primary-alt;
+    margin-bottom: 0;
+  }
+
+  .container-fluid {
+    padding-right: 0;
+  }
+  .navbar-form {
+    margin:0 0 0 20px;
+    padding: 0;
+    .form-control {
+      background-color: $c-primary-alt;
+      color: #fff;
+      border: 0;
+      border-radius: 0;
+      padding: 25px 10px;
+      width: 80px;
+      &::placeholder {
+        color: #fff;
+      }
+      &::focus{
+        box-shadow: none;
+      }
+    }
+    .btn-default {
+      background-color: $c-primary-alt;
+      color: #fff;
+      border: 0;
+      border-radius: 0;
+      padding: 15px 20px;
+    }
+  }
+  
+  
+    .navbar-brand {
+      img {
+        width: 68px;
+        height: auto;
+        position: relative;
+      top: -3px;
+      }
+    }
+
+    .icons-social {
+      padding: 0;
+      position: relative;
+      top: 12px;
+      a {
+      padding: 0;
+      }
+    }
+
+}
+
+#wsn-main-menu {
+  padding: 0;
+  form {
+    font-size: 0;
+  }
+  .navbar-nav.main-menu {
+    a {
+      @include main-font($w:bold);
+      text-transform: uppercase;
+      color: #BCBBBB;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    a:hover , .active a, .open > a{
+      position: relative;
+      background-color: transparent;
+      color: #BCBBBB;
+      &:after {
+        display: block;
+        height: 5px;
+        width: 100%;
+        content: '';
+        background-color: $c-primary-alt;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+      }
+    }
+  }
+  .dropdown-menu {
+    background-color: $c-primary-alt;
+    border: 0;
+    a:hover {
+      background-color: $c-primary;
+    }
+  }
+}

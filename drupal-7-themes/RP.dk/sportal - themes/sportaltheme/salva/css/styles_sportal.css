@@ -1,0 +1,24 @@
+.container > header .navbar-brand img {
+  width: 85%; }
+
+.container > footer .navs .logo {
+  right: -10px; }
+  .container > footer .navs .logo img {
+    width: 80%; }
+
+.breadcrumb > li + li:before {
+  content: "\00bb "; }
+
+.thumbnail > img, .thumbnail a > img {
+  min-width: 100%; }
+
+article.main .search-form {
+  padding: 20px;
+  background: #fff;
+  margin-bottom: 0; }
+article.main .search-advanced {
+  margin: 20px 0; }
+article.main .criterion:first-child label {
+  display: block; }
+
+/*# sourceMappingURL=styles_sportal.css.map */

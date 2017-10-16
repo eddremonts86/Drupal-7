@@ -1,0 +1,89 @@
+name = Sportal v2  Theme
+description = Theme base Sportal.
+core = 7.x
+version = "7.4.3"
+engine = phptemplate
+base theme = sportaltheme
+
+; Image appears on admin/appearance
+screenshot = screenshot.png
+
+; Sportal stylesheets
+stylesheets[all][] = css/styles_sportal.css
+stylesheets[all][] = int_sportal.css
+
+; Sportal framework scripts.
+scripts[] = js/app_sportal.js
+
+; Regions are output in the page.tpl.php
+regions[header]         = Header
+
+; Regions for list pages
+regions[header_news_list]         = Header News List
+regions[header_tips_list]         = Header Tips List
+regions[header_bookmakers_list]   = Header Bookmakers List
+regions[header_blog_list]         = Header Blog List
+
+
+
+; Regions for content
+regions[content_top]        = Content Top
+regions[content]        = Content
+regions[content_bottom]        = Content Bottom
+regions[content_bottom_2]        = content_bottom 2
+regions[sidebar]  = Sidebar
+
+
+; Regions for homepage
+regions[home_sidebar_in_wrapper] = Home Sidebar in Wrapper
+regions[home_row2_main_content]  = Home Row2 main content
+regions[home_last_content]       = Home Last content
+
+
+
+; Regions for footer
+regions[footer_col1]      = Footer Col 1
+regions[footer_col2]      = Footer Col 2
+regions[footer_col3]      = Footer Col 3
+regions[footer_col4]      = Footer Col 4
+regions[copyright_last]   = Copyright last
+regions[after_body]       = After Body
+regions[navigation]     = Navigation
+
+;Region SEO Customs
+regions[SEOpanel]         = SEOpanel
+regions[SEOpanel_bottom]  = SEOpanel_bottom
+
+regions[SEOpanel_top_news]  = SEOpanel_top_news
+regions[SEOpanel_bottom_news]  = SEOpanel_bottom_news
+
+; Panel Layouts
+plugins[panels][layouts] = layouts
+
+; Theme settings:
+
+; Top Bar.
+settings[wsntheme_top_bar_enable] = 1
+settings[wsntheme_top_bar_grid] = 0
+settings[wsntheme_top_bar_sticky] = 0
+settings[wsntheme_top_bar_menu_text] = 'Menu'
+settings[wsntheme_top_bar_custom_back_text] = 1
+settings[wsntheme_top_bar_back_text] = 'Back'
+settings[wsntheme_top_bar_is_hover] = 1
+settings[wsntheme_top_bar_scrolltop] = 1
+
+; Tooltips.
+settings[wsntheme_tooltip_enable] = 1
+settings[wsntheme_tooltip_position] = 'top'
+settings[wsntheme_tooltip_mode] = 'text'
+settings[wsntheme_tooltip_text] = 'More information?'
+settings[wsntheme_tooltip_touch] = 0
+
+; Styles and Scripts.
+settings[wsntheme_disable_core_css] = 0
+
+; Misc.
+settings[wsntheme_html_tags] = 1
+settings[wsntheme_messages_modal] = 0
+settings[wsntheme_pager_center] = 1
+

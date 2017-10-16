@@ -1,0 +1,43 @@
+extends ./layout/front.jade
+
+
+block vars
+  - var pageClass = '';
+  - var pageTitle = 'New Detail';
+
+block header
+  include ./partials/site/header.jade
+
+block content
+  ol.breadcrumb
+    li
+      a(href='index.html') Home
+    li
+      a(href='list-news.html') News
+    li.active Football transfer rumours: Paul Pogba to Manchester City? 
+  main
+    article.main
+      .row.main-article
+        include ./partials/blocks/details/header-detail-new-tip.jade
+
+        include ./partials/blocks/details/content-text.jade
+
+        include ./partials/blocks/buttons-social-share.jade
+
+      .row
+        aside.block-list.block-list-articles
+          h2 Other articles yo might wanna read
+          include ./partials/blocks/list-col-last-home-articles.jade
+      
+
+
+
+    sidebar.main
+      include ./partials/blocks/top-bookmarkers.jade
+      include ./partials/blocks/banner-ads-1.jade
+
+
+
+block footer
+  include ./partials/site/footer.jade
+  

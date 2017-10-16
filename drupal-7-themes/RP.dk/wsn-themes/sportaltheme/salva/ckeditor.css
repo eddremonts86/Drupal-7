@@ -1,0 +1,27 @@
+.gallery {
+  margin: 16px 0;
+  padding: 0;
+  max-width: 600px;
+}
+.gallery:after {
+    display: block;
+    content: '';
+    width: 100%;
+    clear: both;
+}
+.gallery a {
+    display: block;
+    width: -moz-calc( (100% - 20px) / 2);
+    width: calc( (100% - 20px) / 2);
+    float: left;
+    margin-right: 20px;
+}
+.gallery a:last-child {
+    margin-right: 0;
+}
+.gallery a img, .ImagePreviewBox img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+}
+
