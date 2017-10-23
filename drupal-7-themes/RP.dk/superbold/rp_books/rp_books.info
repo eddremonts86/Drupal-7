@@ -1,0 +1,23 @@
+name = RP_Books
+description = RP
+core = 7.x
+base theme = simpleclean
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/global.css
+
+regions[content] = Content
+regions[content_art] = Article Area
+regions[cta_links] = CTA Links
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[sidebar_first] = Right sidebar
+regions[footer] = Footer
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[logo_header] = Logo header
+regions[logo_footer] = Logo footer
+regions[header_top] = Header top
+regions[adw_conten] = Adw Header Text
