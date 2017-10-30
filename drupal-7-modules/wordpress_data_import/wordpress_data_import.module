@@ -1,0 +1,41 @@
+<?php
+define('Importdatarige', 'use admin tools');
+
+/**
+ * Implements hook_menu().
+ */
+function wordpress_data_import_menu() {
+  $items['admin/config/wordpress_data_import'] = [
+    'title' => t('Import wordpress data'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['wordpress_data_import_form'],
+    'access arguments' => ['wordpress_data_import'],
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'src/includes/wordpress_data_import.admin.inc',
+    'weight' => 100,
+  ];
+  return $items;
+}
+
+function wordpress_data_import_node_presave($node) {
+ /* $array = ['article', 'post', 'tip'];
+  if (in_array($node->type, $array)) {
+    $queue_name = 'home';
+    $subqueues = entityqueue_subqueue_load($queue_name);
+    $is_there = FALSE;
+    foreach ($subqueues->eq_node['und'] as $sub) {
+      if ($sub['target_id'] == $node->nid) {
+        $is_there = TRUE;
+        break;
+      }
+    }
+    if ($is_there == FALSE) {
+      $subqueues->eq_node[LANGUAGE_NONE][] = ['target_id' => $node->nid];
+      entityqueue_subqueue_save($subqueues);
+    }
+  }*/
+}
+
+
+
