@@ -131,7 +131,7 @@ class importadatarige {
 
   function importData($Alldata, $vocabulary = 'Old_Articles', $type = 'article') {
     set_time_limit(600);
-   /*$this->deleteNodesbyType($type);
+   $this->deleteNodesbyType($type);
     foreach ($Alldata as $data) {
       $data = (array) $data;
       $id = $data["_id"];
@@ -185,7 +185,7 @@ class importadatarige {
       $node = node_submit($node);
       node_save($node);
     }
-    $this->onlyRedirect($type);*/
+    $this->onlyRedirect($type);
     return TRUE;
   }
 

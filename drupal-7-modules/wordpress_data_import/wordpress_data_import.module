@@ -1,5 +1,5 @@
 <?php
-define('Importdatarige', 'use admin tools');
+define('importWordpressData', 'use admin tools');
 
 /**
  * Implements hook_menu().
@@ -18,24 +18,47 @@ function wordpress_data_import_menu() {
   return $items;
 }
 
-function wordpress_data_import_node_presave($node) {
- /* $array = ['article', 'post', 'tip'];
-  if (in_array($node->type, $array)) {
-    $queue_name = 'home';
-    $subqueues = entityqueue_subqueue_load($queue_name);
-    $is_there = FALSE;
-    foreach ($subqueues->eq_node['und'] as $sub) {
-      if ($sub['target_id'] == $node->nid) {
-        $is_there = TRUE;
-        break;
-      }
-    }
-    if ($is_there == FALSE) {
-      $subqueues->eq_node[LANGUAGE_NONE][] = ['target_id' => $node->nid];
-      entityqueue_subqueue_save($subqueues);
-    }
-  }*/
+
+/*
+function wordpress_data_import_drush_command() {
+  $items = [];
+  $items['site-import'] = [
+    'description' => 'Import data from origin',
+    'aliases' => ['simp'],
+    'arguments' => [
+      'type' => 'Import type: blog, new or event',
+    ],
+    'options' => [
+      'elements' => 'The number of elements to import.',
+    ],
+  ];
+
+  return $items;
 }
 
 
+function drush_site_import($type) {
+  // drush_log (t('Importing data ') . date('Ymd His'));
+  $elements = drush_get_option('elements', 1);
+  if ($elements > 0) {
+    for ($i = 0; $i < elements; $i++) {
+      mymodule_data_import($type);
+    }
+  }
+  return;
+}
 
+function wordpress_data_import_data_import($type) {
+  switch ($type) {
+    case 'import':
+      // create content type node blog
+      break;
+    case 'delete':
+      // create content type node new
+      break;
+    case 'event':
+      // create content type node event
+      break;
+  }
+}
+*/

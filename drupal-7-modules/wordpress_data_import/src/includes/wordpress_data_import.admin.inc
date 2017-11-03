@@ -68,7 +68,7 @@ function wordpress_data_import_form_submit($form, &$form_state) {
   //---------------------------------------------------Start - C Type - Articles  ---------------------------------//
   if($type == 'article'){
     if(!$url){
-      $url = $_SERVER['DOCUMENT_ROOT'].'/sites/all/modules/custom/importdatarige/src/includes/download.articles.json';
+      $url = $_SERVER['DOCUMENT_ROOT'].'/sites/all/modules/custom/wordpress_data_import/src/includes/download.articles.json';
       $data = $IMP->getLocalJson($url);
     }
     else{ $data = $IMP->apiConect($url); }
