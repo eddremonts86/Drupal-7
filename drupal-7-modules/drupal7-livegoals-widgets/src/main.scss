@@ -1,0 +1,353 @@
+.w-livegoals {
+  *, *:before, *:after {
+    box-sizing: inherit;
+    font-size: inherit;
+  }
+
+  sup {
+    font-weight: normal;
+    font-size: 60%;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.5em;
+  }
+
+  button {
+    box-shadow: none !important;
+  }
+
+  > header, > footer {
+    font-size: 1em;
+    min-height: 48px;
+    font-size: inherit;
+    display: flex;
+  }
+
+  > header {
+    > nav {
+      font-size: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+
+      > header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em 1em;
+      }
+
+      > button {
+        font-size: 1.1em;
+        min-width: 3em;
+        cursor: pointer;
+        font-size: inherit;
+        -webkit-appearance: none;
+        flex: 1;
+        font-family: inherit;
+        border: 0;
+        text-transform: uppercase;
+        padding: 2px 8px 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        line-height: 1.1;
+        outline: 0;
+
+        > :first-child {
+          font-weight: bolder;
+          font-size: 1.1em;
+        }
+
+        > :last-child {
+          font-size: 0.7em;
+          font-weight: 200;
+        }
+
+        &.is-selected {
+          background: inherit;
+        }
+      }
+    }
+
+    .w-livegoals-tabs {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 0 8px;
+
+      > button {
+        cursor: pointer;
+        white-space: nowrap;
+        font: inherit;
+        -webkit-appearance: none;
+        border: 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        margin: 0 0.2em;
+        padding: 0.5em 1.25em;
+        color: rgba(0, 0, 0, 0.54);
+        font-weight: bolder;
+        outline: 0;
+        background: #ccc;
+
+        &.is-active {
+          background: white;
+        }
+      }
+    }
+  }
+
+  > main {
+    background: white;
+
+    table {
+      width: 100%;
+      margin: 0;
+      border-collapse: collapse;
+      font-family: inherit;
+
+      //      table-layout: fixed;
+
+      > thead {
+        > tr {
+          > th {
+            font-weight: normal;
+          }
+        }
+      }
+
+      > tbody {
+        border: 0;
+
+        > tr {
+          background: none;
+          border-bottom: 2px solid #eee;
+
+          > th {
+            border: 0;
+            font-weight: normal;
+            text-align: center;
+            padding: 4px 8px;
+            height: 28px;
+            line-height: 1;
+            vertical-align: middle;
+
+            &:first-child {
+              text-align: left;
+            }
+          }
+
+          > td {
+            vertical-align: middle;
+            border: 0;
+            font-weight: 500;
+            padding: 4px 8px;
+            text-align: center;
+          }
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &-poweredby {
+    padding: 8px;
+    font-style: italic;
+    vertical-align: middle;
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+
+    &::after {
+      transition: all 200ms ease-in-out;
+      margin-left: 4px;
+      vertical-align: middle;
+      display: inline-block;
+      content: '';
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: 6px center;
+      background-color: rgba(255, 255, 255, 0.1);
+      background-image: url("http://www.livegoals.com/images/site/logo.png");
+      transform: scale(0.8);
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      &::after {
+        transform: scale(0.9);
+        background-color: rgba(255, 255, 255, 0.54);
+      }
+    }
+  }
+
+  &.0to720 &-poweredby {
+    transform: rotate(90deg);
+  }
+}
+
+@import "./widgets/gamecenter.scss";
+@import "./widgets/schedule.scss";
+@import "./widgets/competitiontable.scss";
+
+.w-livegoals.t-wsn {
+  background: #2a398d;
+  font-family: 'Hind Siliguri', Arial, sans-serif;
+
+  > header {
+    color: white;
+
+    > nav {
+      background: #3d4c9b;
+      color: rgba(255, 255, 255, 0.87);
+
+      > header {
+        color: #ff;
+      }
+
+      > button {
+        color: inherit;
+        background: #5C6BC0;
+        border-left: #5C6BC0 1px solid;
+
+        &.is-selected {
+          border-left: #e0e0e0 1px solid;
+          background: #2a398d;
+        }
+      }
+    }
+  }
+
+  > main {
+    padding: 8px 8px 0;
+
+    > table {
+      th {
+        font-family: 'Hind Siliguri', Arial, sans-serif;
+        background: rgba(0, 0, 0, 0.3) !important;
+        color: rgba(255, 255, 255, 0.87);
+        font-size: 1.1em;
+      }
+
+      td {
+        font-size: 1.1em;
+        color: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+
+  .w-livegoals-poweredby {
+    color: rgba(255, 255, 255, 0.54) !important;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.87) !important;
+    }
+  }
+}
+
+.w-livegoals.t-sportal {
+  font-family: "Open Sans",Arial,Helvetica,Verdana,sans-serif;
+
+  > header {
+    color: white;
+
+    > nav {
+      background: url(http://www.sportal.se/sites/all/themes/quatro/images/mainmenu-border.png) 0 0 repeat-x;
+      margin-bottom: 0;
+      margin-left: 0.5em;
+
+      > button {
+        color: white;
+        font-size: 120%;
+        background: inherit;
+
+        &.is-selected, &:hover {
+          background: #9E0000;
+        }
+      }
+    }
+  }
+
+  > main {
+    padding: 8px 0;
+
+    > table {
+      th {
+        background: transparent !important;
+        color: rgba(0, 0, 0, 0.54);
+        font-weight: bold;
+        border-bottom: 2px solid #b70000;
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+      }
+    }
+  }
+
+  .w-livegoals-poweredby {
+    color: rgba(255, 255, 255, 0.64) !important;
+
+    &::after {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.87) !important;
+
+      &::after {
+        background-color: rgba(255, 255, 255, 0.64);
+      }
+    }
+  }
+}
+
+.w-livegoals-icon {
+  &::before {
+    content: '';
+    margin-left: 0.5em;
+    width: 1.25em;
+    vertical-align: bottom;
+    height: 1.25em;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &-goal::before {
+    background-image: url("assets/goal.svg");
+  }
+
+  &-own-goal::before {
+    background-image: url("assets/own-goal.svg");
+  }
+
+  &-substitution-in::before {
+    background-image: url("assets/substitution-in.svg");
+  }
+
+  &-substitution-out::before {
+    background-image: url("assets/substitution-out.svg");
+  }
+
+  &-red-card::before {
+    background-image: url("assets/red-card.svg");
+  }
+
+  &-yellow-card::before {
+    background-image: url("assets/yellow-card.svg");
+  }
+
+  &-goal::before {
+    background-image: url("assets/goal.svg");
+  }
+}

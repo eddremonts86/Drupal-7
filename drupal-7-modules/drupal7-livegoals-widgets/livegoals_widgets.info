@@ -1,0 +1,7 @@
+name = Livegoals Widgets
+description = Livegoals Widget blocks for drupal
+core = 7.x
+version = 0.1
+configure = admin/config/content/livegoals_widgets
+scripts[] = build/main.js
+stylesheets[all][] = build/main.css

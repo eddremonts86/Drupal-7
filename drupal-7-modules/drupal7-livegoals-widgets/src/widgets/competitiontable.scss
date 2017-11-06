@@ -1,0 +1,75 @@
+.w-livegoals-competitiontable {
+  font-size: 1rem;
+
+  th, td {
+    padding: initial;
+    vertical-align: middle;
+    border: initial;
+    background-color: inherit;
+  }
+
+  > main {
+    > table {
+      > tbody, > thead {
+        > tr {
+          > td, > th {
+            &.w-livegoals-competitiontable-rankcolumn {
+              padding: 0;
+              text-align: left;
+              width: 1%;
+            }
+
+            &.w-livegoals-competitiontable-teamcolumn {
+              text-align: left;
+              padding: 0.75em 0;
+              padding-left: 0.5em;
+            }
+
+            &.w-livegoals-competitiontable-pointscolumn {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-spotblock {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 2;
+  }
+
+  &-legend {
+    border-top: 8px solid #eee;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0 !important;
+    padding: 0;
+    padding-top: 8px;
+    list-style: none !important;
+
+    &-item {
+      list-style: none !important;
+      flex: 1;
+      white-space: nowrap;
+      vertical-align: middle;
+      line-height: 0;
+      padding-right: 0.5em;
+
+      .w-livegoals-competitiontable-spotblock {
+        margin-right: 0.5em;
+        margin-bottom: 0.25em;
+      }
+    }
+  }
+}
+
+.w-livegoals-competitiontable.t-sportal {
+  background-color: #b70000;
+}

@@ -1,0 +1,221 @@
+<?php
+
+/**
+ * @file
+ * Sandbox Helper main .module file.
+ *
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+//drupal_add_css('//fonts.googleapis.com/css?family=Hind+Siliguri|Open+Sans+Condensed:700,300,300italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic,300italic,300', array(  'type' => 'external'));
+function livegoals_widgets_block_info() {
+  // Live goals schedule block
+  $blocks['livegoals_schedule'] = array(
+    'info' => t('Livegoals Schedule'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['livegoals_gamecenter'] = array(
+    'info' => t('⚠ DO NOT USE Livegoals Gamecenter DO NOT USE ⚠'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['livegoals_competitiontable'] = array(
+    'info' => t('⚠ DO NOT USE Livegoals Competition Table DO NOT USE ⚠'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['livegoals_competitiontables'] = array(
+    'info' => t('⚠ DO NOT USE Livegoals Competition Tables DO NOT USE ⚠'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  $blocks['livegoals_kitchensink'] = array(
+    'info' => t('⚠ DO NOT USE Livegoals Kitchen Sink DO NOT USE ⚠'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+
+
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function livegoals_widgets_block_view($delta) {
+  $block = array();
+
+  switch ($delta) {
+    case 'livegoals_schedule':
+      $block['subject'] = t('');
+      $block['content'] = _livegoals_schedule_block();
+      break;
+    case 'livegoals_competitiontable':
+      $block['subject'] = t('');
+      $block['content'] = _livegoals_competitiontable_block();
+      break;
+    case 'livegoals_competitiontables':
+      $block['subject'] = t('');
+      $block['content'] = _livegoals_competitiontables_block();
+      break;
+    case 'livegoals_gamecenter':
+      $block['subject'] = t('');
+      $block['content'] = _livegoals_gamecenter_block();
+      break;
+    case 'livegoals_kitchensink':
+      $block['subject'] = t('');
+      $block['content'] = _livegoals_schedule_block()+_livegoals_competitiontable_block();
+      break;
+  }
+  return $block;
+}
+
+function livegoals_widgets_block_configure($delta = '') {
+  $form = array();
+  // The $delta parameter tells us which block is being configured.
+  // In this example, we'll allow the administrator to customize
+  // the text of the 'configurable text string' block defined in this module.
+  if ($delta == 'livegoals_schedule') {
+    // All we need to provide is the specific configuration options for our
+    // block. Drupal will take care of the standard block configuration options
+    // (block title, page visibility, etc.) and the save button.
+    $form['livegoals_schedule_classes'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Classes'),
+      '#size' => 666,
+      '#description' => t('Additional space-separated classes to apply to the root schedule component. This is where to add theme class. Supported themes: t-wsn, t-sportal'),
+      '#default_value' => variable_get('livegoals_schedule_classes', ''),
+    );
+    $form['livegoals_schedule_refreshrate'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Refresh rate(ms)'),
+      '#size' => 60,
+      '#description' => t('How often should the schedule be updated?'),
+      '#default_value' => variable_get('livegoals_schedule_refreshrate', 30000),
+    );
+    $form['livegoals_schedule_language'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Language'),
+      '#size' => 5,
+      '#description' => t('Two-letter ISO 639-1 name of the language that the block should speak. Leave empty for english.'),
+      '#default_value' => variable_get('livegoals_schedule_language', false),
+    );
+    $form['livegoals_schedule_datepicker'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show datepicker?'),
+      '#description' => t('Should the schedule let the user pick a different date than today?'),
+      '#default_value' => variable_get('livegoals_schedule_datepicker', false),
+    );
+    $form['livegoals_schedule_payout'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show payout column?'),
+      '#description' => t('Should the payout column be calculated and shown?'),
+      '#default_value' => variable_get('livegoals_schedule_payout', false),
+    );
+    $form['livegoals_schedule_maxmatches'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Maximum Matches'),
+      '#size' => 60,
+      '#description' => t('How many matches should the block display? Leave empty for no limit.'),
+      '#default_value' => variable_get('livegoals_schedule_maxmatches', false),
+    );
+    $form['livegoals_schedule_maxheight'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Maximum Height'),
+      '#size' => 60,
+      '#description' => t('Maximum height for the match list in pixels. Leave empty for no limit.'),
+      '#default_value' => variable_get('livegoals_schedule_maxheight', false),
+    );
+    $form['livegoals_schedule_competition'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Competition ID'),
+      '#size' => 36,
+      '#description' => t('Should the schedule only show future games of a certain competition? Leave empty if not. This disables date '),
+      '#default_value' => variable_get('livegoals_schedule_competition', ''),
+    );
+    $form['livegoals_schedule_linkprefix'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Match link prefix'),
+      '#size' => 36,
+      '#description' => t('Match link prefix(part before the match slug)'),
+      '#default_value' => variable_get('livegoals_schedule_linkprefix', ''),
+    );
+    $form['livegoals_schedule_linksuffix'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Match link suffix'),
+      '#size' => 36,
+      '#description' => t('Match link suffix(part after the match slug)'),
+      '#default_value' => variable_get('livegoals_schedule_linksuffix', ''),
+    );
+  }
+  return $form;
+}
+
+function livegoals_widgets_block_save($delta = '', $edit = array()) {
+  // We need to save settings from the configuration form.
+  // We need to check $delta to make sure we are saving the right block.
+  if ($delta == 'livegoals_schedule') {
+    // Have Drupal save the string to the database.
+    variable_set('livegoals_schedule_classes', $edit['livegoals_schedule_classes']);
+    variable_set('livegoals_schedule_refreshrate', $edit['livegoals_schedule_refreshrate']);
+    variable_set('livegoals_schedule_maxmatches', $edit['livegoals_schedule_maxmatches']);
+    variable_set('livegoals_schedule_language', $edit['livegoals_schedule_language']);
+    variable_set('livegoals_schedule_datepicker', $edit['livegoals_schedule_datepicker']);
+    variable_set('livegoals_schedule_payout', $edit['livegoals_schedule_payout']);
+    variable_set('livegoals_schedule_maxheight', $edit['livegoals_schedule_maxheight']);
+    variable_set('livegoals_schedule_competition', $edit['livegoals_schedule_competition']);
+    variable_set('livegoals_schedule_linkprefix', $edit['livegoals_schedule_linkprefix']);
+    variable_set('livegoals_schedule_linksuffix', $edit['livegoals_schedule_linksuffix']);
+  }
+}
+
+
+
+function _livegoals_schedule_block() {
+  $configJSON = json_encode(array(
+    'classes' => variable_get('livegoals_schedule_classes', ''),
+    'refreshRate' => variable_get('livegoals_schedule_refreshrate', 30000),
+    'maxMatches' => variable_get('livegoals_schedule_maxmatches', false),
+    'maxHeight' => variable_get('livegoals_schedule_maxheight', false),
+    'datepicker' => variable_get('livegoals_schedule_datepicker', false),
+    'showPayout' => variable_get('livegoals_schedule_payout', false),
+    'language' => variable_get('livegoals_schedule_language', 'en'),
+    'linkPrefix' => variable_get('livegoals_schedule_linkprefix', ''),
+    'linkSuffix' => variable_get('livegoals_schedule_linksuffix', ''),
+    'competition' => variable_get('livegoals_schedule_competition', false)
+  ));
+
+  if(0 && variable_get('livegoals_schedule_language', 'en')!='en')
+    drupal_add_js('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/'.variable_get('livegoals_schedule_language', 'en').'.js', 'external');
+
+  return "<div id='js-livegoals-schedule' data-config='$configJSON'></div>";
+
+}
+function _livegoals_competitiontable_block() {
+  return "<div id='js-livegoals-competitiontable' data-config='".json_encode(array(
+      'competitionId'=>"4d0893ae-4cc6-11e5-bc51-525400f795f0",
+      'classes'=>'t-sportal'
+    ))."'></div>";
+}
+function _livegoals_competitiontables_block() {
+  return "<div id='js-livegoals-competitiontables' data-config='".json_encode(array(
+      'competitionIds'=>[
+        "4d0893ae-4cc6-11e5-bc51-525400f795f0",
+        "5817de62-4cc6-11e5-bc51-525400f795f0",
+        "5817de62-4cc6-11e5-bc51-525400f795f0",
+        "5ecb1878-4cc6-11e5-bc51-525400f795f0",
+        "654f7356-4cc6-11e5-bc51-525400f795f0",
+        "6b18bb62-4cc6-11e5-bc51-525400f795f0",
+        "7740feb8-4cc6-11e5-bc51-525400f795f0",
+        "78c674de-4cc6-11e5-bc51-525400f795f0"
+        ],
+      'classes'=>'t-sportal'
+    ))."'></div>";
+}
+function _livegoals_gamecenter_block() {
+  return "<div id='js-livegoals-gamecenter' data-config='".json_encode(array(
+      'eventToken'=>'new-caledonia-vs-samoa-2016-06-01',
+      'classes'=>'t-sportal'
+//      'eventId'=>'6c900900-2bab-11e5-ad57-525400f795f0'
+    ))."'></div>";
+}
+ini_set('error_reporting', 'E_ALL ^ E_NOTICE');

@@ -1,0 +1,632 @@
+.w-livegoals-gamecenter {
+  font-size: 1rem;
+  margin: 0 auto;
+
+  th, td {
+    padding: initial;
+    vertical-align: middle;
+    border: initial;
+    background-color: inherit;
+  }
+
+  th {
+    font-size: 1.35em;
+    line-height: 1.5;
+  }
+
+  th tbody {
+    font-size: 1.25em;
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background: initial;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -2px;
+
+    > div {
+      flex: calc(50% - 2px);
+      display: flex;
+      align-items: center;
+      margin-bottom: 2px;
+      margin-right: 2px;
+      background-color: #BDBCBC;
+      color: white;
+
+      &::before {
+        content: '';
+        margin: 6px 8px;
+        width: 16px;
+        vertical-align: center;
+        height: 16px;
+        display: inline-block;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      &.competition::before {
+        background-image: url("assets/shield.svg");
+      }
+
+      &.date::before {
+        background-image: url("assets/calendar.svg");
+      }
+
+      &.venue::before {
+        background-image: url("assets/footballfield.svg");
+      }
+
+      &.referee::before {
+        background-image: url("assets/whistle.svg");
+      }
+    }
+  }
+
+  &-matchboard {
+    display: flex;
+    position: relative;
+    margin-bottom: 2em;
+
+    &-status {
+      position: absolute;
+      top: 2.5em;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 4px;
+      box-shadow: 0 0 2px 0 black;
+      color: white;
+      padding: 0.75em 1em;
+      line-height: 0.8;
+      font-size: 1.2em;
+    }
+
+    &-team {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: stretch;
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.75em 0 0.25em;
+      }
+
+      &-score {
+        font-size: 3em;
+        font-weight: 600;
+        line-height: 1.1;
+        color: white;
+      }
+
+      &-name {
+        font-weight: 500;
+        font-size: 1.1em;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      &-scorers {
+        margin: 0 !important;
+        padding: 0;
+        background: rgb(30, 30, 30);
+        flex: 1;
+        list-style: none;
+        padding: 0 12px;
+
+        &-scorer {
+          list-style: none;
+          padding-right: 5px;
+          font-size: 1.05em;
+          color: white;
+          line-height: 1.5;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+          &:last-child {
+            border-bottom-width: 0;
+          }
+
+          &-name {}
+
+          &-time {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+  &-commentary {
+    margin-bottom: 2em;
+
+    > ul {
+      list-style: none;
+      margin: 0 0 0.5em !important;
+      padding: 1em 0;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 24px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 1px dashed rgba(0, 0, 0, 0.54);
+      }
+
+      > li {
+        list-style: none;
+        padding: 0 1em;
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: 0.9em;
+
+        .text {
+          line-height: 1.1;
+        }
+
+        .icon {
+          position: absolute;
+          right: 100%;
+          top: 50%;
+          font-size: 1.1em;
+          transform: translate(50%, -50%);
+        }
+
+        .time {
+          background: rgba(0, 0, 0, 0.1);
+          padding: 0 6px;
+          margin: 6px 12px;
+          display: flex;
+          color: rgba(0, 0, 0, 0.54);
+          font-weight: bold;
+          position: relative;
+
+          &::before {
+            position: absolute;
+            content: '';
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 0.4em solid transparent;
+            border-bottom: 0.4em solid transparent;
+            border-right: 0.4em solid rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        &.away {
+          margin-left: 50%;
+        }
+
+        &.home {
+          margin-right: 50%;
+          text-align: right;
+          justify-content: flex-end;
+
+          .text {
+            order: 1;
+          }
+
+          .time {
+            order: 2;
+
+            &::before {
+              right: initial;
+              left: 100%;
+              border-right-width: 0;
+              border-left: 0.4em solid rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          .icon {
+            order: 3;
+            right: initial;
+            left: 100%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    > table {
+      margin: 0;
+      width: 100%;
+
+      > thead > tr > th {
+        background-color: #BDBCBC !important;
+        color: white;
+        text-align: left;
+        padding: 2px 10px;
+        font-weight: normal;
+      }
+
+      > tbody > tr > td {
+        color: rgba(0, 0, 0, 0.54);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.02);
+        font-weight: bold;
+
+        i {
+          color: black;
+
+          &.fa-inverse {
+            color: white;
+          }
+        }
+
+        &:first-child {
+          padding: 5px;
+        }
+      }
+
+      > tbody > tr:last-child > td {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  &-odds {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-right: -1em;
+
+    > div {
+      margin-right: 1em;
+      margin-bottom: 1em;
+      flex: calc(50% - 1em);
+
+      &.HalfTimeFullTimeOdds {
+        flex: 100%;
+        width: 100%;
+      }
+
+      > table {
+        width: 100%;
+        margin: 0;
+        display: table;
+
+        > thead > tr > th {
+          background-color: #BDBCBC !important;
+          color: white;
+          text-align: center;
+          padding: 2px 5px;
+          font-weight: normal;
+
+          select {
+            margin-left: .5em;
+            font-size: 0.75em;
+            line-height: 1.2;
+            height: auto;
+            margin-top: -6px;
+          }
+
+          &:first-child {
+            white-space: nowrap;
+            text-align: left;
+            padding: 2px 10px;
+          }
+        }
+
+        > tbody > tr {
+          > td, > th {
+            color: rgba(0, 0, 0, 0.54);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.02);
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+
+            &:first-child {
+              white-space: nowrap;
+              text-align: left;
+            }
+          }
+
+          > th {}
+
+          &:last-child {
+            > td, > th {
+              border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-lineups {
+    //    background: red;
+    display: flex;
+    justify-content: space-between;
+
+    > table {
+      display: table;
+      width: 47.5%;
+
+      > thead {
+        > tr > th {
+          background-color: #BDBCBC !important;
+          color: white;
+          text-align: left;
+          font-weight: normal;
+          padding: 2px;
+        }
+
+        &:first-child {
+          > tr > th {
+            background: #2a398d !important;
+          }
+        }
+      }
+
+      > tbody {
+        &.substitutes {
+          color: rgba(0, 0, 0, 0.5);
+        }
+
+        > tr {
+          > td {
+            padding: 5px;
+            border-bottom: 1px solid #BDBDBD;
+
+            &:first-child {
+              text-align: right;
+              width: 1%;
+              padding-left: 8px;
+              padding-right: 12px;
+            }
+
+            &:last-child {}
+          }
+        }
+      }
+    }
+  }
+
+  &-statistics {
+    table {
+      width: 100%;
+      border-bottom: 1px solid #BDBDBD;
+
+      > thead > tr > th {
+        background-color: #BDBCBC !important;
+        color: white;
+        font-weight: normal;
+        padding: 2px 10px;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      > tbody > tr {
+        &:first-child td {
+          padding-top: 5px;
+        }
+
+        &:last-child td {
+          padding-bottom: 5px;
+        }
+
+        > td {
+          line-height: 1.25;
+
+          &.barcell {
+            width: 50%;
+
+            &.home {
+              text-align: right;
+              padding-left: 1em;
+
+              > .bar {}
+            }
+
+            &.away {
+              text-align: left;
+              padding-right: 1em;
+
+              > .bar {}
+            }
+
+            > .bar {
+              display: inline-block;
+              height: 1em;
+              background: teal;
+              vertical-align: middle;
+            }
+          }
+
+          &.stattype {
+            text-align: center;
+            padding-top: 5px;
+            padding-left: 16px;
+            padding-right: 16px;
+            font-size: 0.9em;
+            line-height: 1;
+            font-weight: bold;
+            white-space: nowrap;
+          }
+
+          &:first-child {
+            text-align: center;
+            width: 1%;
+            padding: 5px;
+          }
+
+          &:last-child {
+            text-align: center;
+            width: 1%;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &-matches {
+    > table {
+      width: 100%;
+
+      > thead > tr > th {
+        background: #BDBCBC !important;
+        color: white;
+        font-weight: normal;
+      }
+
+      > tbody > tr > td {
+        padding: 5px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.87);
+        border-bottom: 1px solid #BDBDBD;
+
+        &.homescore, &.awayscore {
+          font-weight: bold;
+        }
+
+        &.homename {
+          text-align: right;
+        }
+
+        &.awayname {
+          text-align: left;
+        }
+
+        &.date {
+          white-space: nowrap;
+
+          > sup {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
+
+.t-wsn.w-livegoals-gamecenter {
+  background: transparent !important;
+
+  .w-livegoals-gamecenter-matchboard {
+    &-team {
+      background-color: #2a398d;
+
+      &:last-child {
+        background-color: #5C6BC0;
+      }
+    }
+  }
+
+  .w-livegoals-gamecenter-statistics {
+    table {
+      > tbody > tr {
+        > td {
+          &.barcell {
+            &.home {
+              > .bar {
+                background-color: #2a398d;
+              }
+            }
+
+            &.away {
+              > .bar {
+                background-color: #5C6BC0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .w-livegoals-gamecenter-lineups {
+    > table {
+      > thead {
+        &:first-child {
+          > tr > th {
+            background: #5C6BC0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.t-sportal.w-livegoals-gamecenter {
+  table {
+    background: white;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  .w-livegoals-gamecenter-details {
+    background: white;
+  }
+
+  .w-livegoals-gamecenter-matchboard {
+    &-team {
+      background-color: #9E0000;
+
+      &:last-child {
+        background-color: #b70000;
+      }
+    }
+  }
+
+  .w-livegoals-gamecenter-statistics {
+    table {
+      > tbody > tr {
+        > td {
+          &.barcell {
+            &.home {
+              > .bar {
+                background-color: #9E0000;
+              }
+            }
+
+            &.away {
+              > .bar {
+                background-color: #b70000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .w-livegoals-gamecenter-lineups {
+    > table {
+      > thead {
+        &:first-child {
+          > tr > th {
+            background: #b70000 !important;
+          }
+        }
+      }
+    }
+  }
+}
