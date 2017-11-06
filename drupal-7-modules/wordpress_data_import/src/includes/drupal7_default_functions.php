@@ -277,6 +277,7 @@ class drupal7_default_functions {
     $subject = str_replace('\r\n', '<br>', $subject);
     $subject = str_replace('\r\n\r', '<br>', $subject);
     $subject = str_replace('\r\n\r\n', '<br>', $subject);
+    $subject = str_replace('span', '<p>', $subject);
     return $subject;
   }
 
