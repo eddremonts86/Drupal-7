@@ -9,7 +9,7 @@ function wordpress_data_import_menu() {
     'title' => t('Import wordpress data'),
     'page callback' => 'drupal_get_form',
     'page arguments' => ['wordpress_data_import_form'],
-    'access arguments' => ['wordpress_data_import'],
+    'access arguments' => ['wordpress_data_import_form_submit'],
     'access callback' => TRUE,
     'type' => MENU_LOCAL_TASK,
     'file' => 'src/includes/wordpress_data_import.admin.inc',
@@ -18,47 +18,9 @@ function wordpress_data_import_menu() {
   return $items;
 }
 
-
-/*
-function wordpress_data_import_drush_command() {
-  $items = [];
-  $items['site-import'] = [
-    'description' => 'Import data from origin',
-    'aliases' => ['simp'],
-    'arguments' => [
-      'type' => 'Import type: blog, new or event',
-    ],
-    'options' => [
-      'elements' => 'The number of elements to import.',
-    ],
-  ];
-
-  return $items;
+function wordpress_data_import_page() {
+  return t("The Action Example provides three example 
+                 actions which can be configured on 
+                the <a href='admin/config/wordpress_data_import'>
+                Actions configuration page</a>");
 }
-
-
-function drush_site_import($type) {
-  // drush_log (t('Importing data ') . date('Ymd His'));
-  $elements = drush_get_option('elements', 1);
-  if ($elements > 0) {
-    for ($i = 0; $i < elements; $i++) {
-      mymodule_data_import($type);
-    }
-  }
-  return;
-}
-
-function wordpress_data_import_data_import($type) {
-  switch ($type) {
-    case 'import':
-      // create content type node blog
-      break;
-    case 'delete':
-      // create content type node new
-      break;
-    case 'event':
-      // create content type node event
-      break;
-  }
-}
-*/

@@ -8,7 +8,7 @@
 
 class importdatawordpress extends drupal7_default_functions {
 
-  public function externalConnetion($sql,$local= false) {
+  public function externalConnetion($sql,$local= true) {
 
 
     if(!$local){
@@ -45,6 +45,7 @@ class importdatawordpress extends drupal7_default_functions {
     $sql = 'SELECT * FROM `wp_posts` WHERE post_status = "publish" and post_type ="post"  ORDER BY ID Desc';
     $post = $this->externalConnetion($sql);
     $this->createNodes($post);
+    return true;
   }
 
   public function getImgPost($idPost, $uid) {
@@ -75,12 +76,14 @@ class importdatawordpress extends drupal7_default_functions {
 
   public function deleteNodesByType($Type = 'old_articles') {
     set_time_limit(600);
+
     $results = db_select('node', 'n')
-      ->fields('n', ['nid'])
+      ->fields('n', ['nid','title'])
       ->condition('type', $Type, '=')
-      ->execute();
-    if (isset($results) and !empty($result)) {
+      ->execute()->fetchAll();
+    if (isset($results)) {
       foreach ($results as $result) {
+        var_dump($result->title);
         node_delete($result->nid);
         $nids[] = $result->nid;
       }
@@ -109,36 +112,12 @@ class importdatawordpress extends drupal7_default_functions {
     return $objuserName->uid;
   }
 
-  public function createNodes($AllData,$type = 'old_articles', $delete = TRUE) {
-    if ($delete == TRUE) {
-      $this->deleteNodesByType();
-    }
+  public function createNodes($AllData,$type = 'old_articles') {
     $i=0;
-    echo "<h2>New Post</h2>";
+    var_dump("New Post\n");
     foreach ($AllData as $data) {
       $i++;
-      //if($i == 10){break;}
-      /* ----------- no used ------------
-        $post_excerpt = $this->toUTF8($data[6]);
-        $post_status = $this->toUTF8($data[7]);
-        $comment_status = $this->toUTF8($data[8]);
-        $ping_status = $this->toUTF8($data[9]);
-        $post_password = $this->toUTF8($data[10]);
-        $to_ping = $this->toUTF8($data[12]);
-        $pinged = $this->toUTF8($data[13]);
-        $post_modified = $this->toUTF8($data[14]);
-        $post_modified_gmt = $this->toUTF8($data[15]);
-        $post_parent = $this->toUTF8($data[17]);
-        $guid = $this->toUTF8($data[18]);
-        $menu_order = $this->toUTF8($data[19]);
-        $post_type = $this->toUTF8($data[20]);
-        $post_mime_type = $this->toUTF8($data[21]);
-        $comment_count = $this->toUTF8($data[22]);
-        $post_date_gmt = $this->toUTF8($data[3]);
-      */
-      /* $node->title = ucfirst($post_title); */
-
-
+      if($i == 10){break;}
       $post_content = $this->imgToShortCodes($data[4]);
       $id = $this->toUTF8($data[0]);
       $wordpress_post_author = $this->toUTF8($data[1]);
@@ -165,13 +144,12 @@ class importdatawordpress extends drupal7_default_functions {
       $node->body[$node->language][0]['value'] = '<p>'.$post_content .'</p>';
       $node->body[$node->language][0]['summary'] = '';
       $node->body[$node->language][0]['format'] = 'shortcodes';
-
-
       $nodeSummary = explode('.', $post_content);
       $metaDescription = strip_tags($nodeSummary[0], '<a><img>');
       $node->metatags['nb']['description']['value'] = $metaDescription;
-
-
+      $node->metatags['und']['description']['value'] = $metaDescription;
+      $node->metatags['nb']['description']['value'] = $post_title;
+      $node->metatags['und']['description']['value'] = $post_title;
       $img = $this->getImgPost($id, $post_date);
       if ($img) {
         $node->field_image = $img['img'];
@@ -180,8 +158,7 @@ class importdatawordpress extends drupal7_default_functions {
       $node = node_submit($node);
       node_save($node);
       //----------------------- Save the node ---------------------------------------------
-
-      echo $i .' - '.$post_title.'<br>';
+      var_dump($i .' - '.$post_title);
       $old_url = $post_date_url.$this->toUTF8($data[11]);
       $this->redirect($old_url, $node->nid);
 
@@ -213,6 +190,34 @@ class importdatawordpress extends drupal7_default_functions {
     $text = preg_replace("/(.*)(https\:\/\/youtu.be\/(.*)+)(.*)/", "$1[video]$2[/video]<br>$3", $text);
     $text = preg_replace("/(.*)(https\:\/\/soundcloud.com\/(.*)+)(.*)/", "$1[soundcloud]$2[/soundcloud]<br>$3", $text);
     return $text;
+  }
+
+  public function getNodebyExpresion($contenType = ['article','post','tip','bookmaker','old_articles'])
+  {
+    foreach ($contenType as $type) {
+      $query = db_select('node', 'n')->fields('n', ['nid'])->condition('type', $type, '=')->execute()->fetchAll();
+      $this->changeSiteUrl($query);
+    }
+    return true;
+  }
+
+  public function changeSiteUrl($nodeIdArray, $exp = "sportal.no", $replase = "fotballkanalen.com") {
+    foreach ($nodeIdArray as $nodeId) {
+      $node = node_load($nodeId->nid);
+      var_dump($node->title."\n");
+      $node->metatags['nb']['title']['value'] = $this->searchAndReplease($exp,$replase,  $node->metatags['nb']['title']['value']);
+      $node->metatags['und']['title']['value'] = $this->searchAndReplease($exp,$replase,  $node->metatags['und']['title']['value']);
+      $node->metatags['nb']['description']['value'] = $this->searchAndReplease($exp,$replase,$node->metatags['nb']['description']['value']);
+      $node->metatags['und']['description']['value'] =$this->searchAndReplease($exp,$replase,$node->metatags['und']['description']['value']);
+      $node = node_submit($node);
+      node_save($node);
+    }
+    return true;
+  }
+
+  public function searchAndReplease($search,$replese,$data){
+    $data = str_replace($search, $replese, $data);
+    return $data;
   }
 
 }
