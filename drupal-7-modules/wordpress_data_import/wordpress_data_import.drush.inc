@@ -14,6 +14,9 @@ function wordpress_data_import_drush_command() {
   $items['WDI_wordpressImport'] = array(
     'description' => 'Demonstrate how Drush commands work.',
     'callback' => 'drush_IDFWpres',
+    'arguments' => array(
+      'context' => 'Please let me now(if we are on local developer server or no)',
+    ),
     'aliases' => array('wordpressImport'));
 
   $items['WDI_clearMetadata'] = array(
@@ -33,9 +36,9 @@ function wordpress_data_import_drush_command() {
 /**
  * Command callback.
  */
-function drush_IDFWpres() {
+function drush_IDFWpres($context) {
   $obj = new importdatawordpress();
-  $obj->getPost();
+  $obj->getPost($context);
 }
 
 function drush_CHUrl() {

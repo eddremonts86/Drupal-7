@@ -5,13 +5,14 @@
  * Date: 10/30/17
  * Time: 1:08 PM
  */
+require_once dirname(__FILE__).'/drupal7_default_functions.php';
 
 class importdatawordpress extends drupal7_default_functions {
 
-  public function externalConnetion($sql,$local= true) {
+  public function externalConnetion($sql,$local = 'true') {
 
 
-    if(!$local){
+    if($local = 'false'){
       $host = "localhost";
       $user = "root";
       $password = "jGAWpPIU55Jo";
@@ -41,9 +42,9 @@ class importdatawordpress extends drupal7_default_functions {
 
   }
 
-  public function getPost() {
+  public function getPost($context = 'true') {
     $sql = 'SELECT * FROM `wp_posts` WHERE post_status = "publish" and post_type ="post"  ORDER BY ID Desc';
-    $post = $this->externalConnetion($sql);
+    $post = $this->externalConnetion($sql,$context);
     $this->createNodes($post);
     return true;
   }
@@ -209,6 +210,14 @@ class importdatawordpress extends drupal7_default_functions {
       $node->metatags['und']['title']['value'] = $this->searchAndReplease($exp,$replase,  $node->metatags['und']['title']['value']);
       $node->metatags['nb']['description']['value'] = $this->searchAndReplease($exp,$replase,$node->metatags['nb']['description']['value']);
       $node->metatags['und']['description']['value'] =$this->searchAndReplease($exp,$replase,$node->metatags['und']['description']['value']);
+
+      $exp = "https://www.sportal.no";
+      $replase = "";
+
+      $node->body['und'][0]['value'] =$this->searchAndReplease($exp,$replase,$node->body['und'][0]['value']);
+      $node->body['und'][0]['summary'] =$this->searchAndReplease($exp,$replase,$node->body['und'][0]['summary']);
+      $node->field_intro['und'][0]['value'] = $this->searchAndReplease($exp,$replase,$node->field_intro['und'][0]['value']);
+
       $node = node_submit($node);
       node_save($node);
     }
