@@ -1,0 +1,118 @@
+<?php
+/**
+ * @file aff_shortcode.module
+ */
+
+/**
+ * Implements aff_shortcode module
+ *
+ * Define our shortcodes and their titles, descriptions, and callback functions.
+ * See the comments below for an explanation of each parameter
+ *
+ * @param none
+ * @return array
+ */
+function aff_shortcode_shortcode_info() {
+
+    $shortcodes['bet365'] = array(
+        'title' => t('bet365'),  // The title of this shortcode, displayed in the Drupal backend for administrators to enable/disable shortcodes for input types
+        'description' => t('bet365 affiliate shortcode'),  // Description shown along with the title in the Drupal backend
+        'process callback' => 'aff_shortcode_shortcode_bet365', // Custom function that deals with the variables and html output
+        'tips callback' => 'aff_shortcode_shortcode_bet365_tip' // Custom function that displays some help text to the user
+    );
+
+    // $shortcodes['second_shortcode'] = array();
+    // $shortcodes['third_shortcode'] = array();
+    // and so on...
+
+    return $shortcodes;
+}
+
+
+/**
+ * Implements aff_shortcode_theme
+ *
+ * Define our variables/attributes for each custom shortcode
+ *
+ * @param none
+ * @return array
+ */
+function aff_shortcode_theme() {
+
+    return array(
+        'shortcode_bet365' => array(
+            'variables' => array('text' => ''),
+        ),
+        // 'shortcode_second_shortcode' => array(),
+        // 'shortcode_third_shortcode' => array(),
+        // and so on...
+    );
+
+}
+
+
+/**
+ * Implements aff_shortcode_shortcode_bet365
+ *
+ * Define our process callback function for our [bet365] shortcode. This
+ * takes in our shortcode attributes from the shortcode and if empty, sets
+ * the property to the default value stated in this function. We then pass
+ * in our attributes to the theme() function which returns the HTML.
+ *
+ * $attrs = shortcode_attrs(array(
+ *     'attribute' => 'default_value_goes_here'
+ * ),
+ *
+ * @param $attrs array  Array of variables/attributes the user can customize
+ * @return string
+ */
+function aff_shortcode_shortcode_bet365($attrs, $text) {
+
+    $attrs = shortcode_attrs(array(
+        'text' => 'bet365'
+    ), $attrs );
+
+    return theme('shortcode_bet365', array('text' => $text));
+
+}
+
+
+/**
+ * Implements theme_shortcode_bet365
+ *
+ * This function returns the output of the shortcode.  The variables/attributes
+ * are passed in as an array.
+ *
+ * @param $vars array
+ * @return string
+ */
+function theme_shortcode_bet365($vars) {
+    return '<a href="http://www.bet365.com/home/?affiliate=365_396071" rel="nofollow">' . $vars['text'] . '</a>';
+}
+
+
+/**
+ * Implements aff_shortcode_shortcode_bet365_tip
+ *
+ * This function outputs text below the WYSIWYG editor to tell the user what
+ * shortcodes are available and what the parameters are for the shortcode.
+ *
+ * @param $format stdClass Information about which text format is being used
+ * @param $long bool Whether this is the 'More Info' page for the format
+ * @return string The text to be returned
+ */
+function aff_shortcode_shortcode_bet365_tip($format, $long) {
+
+    $output = array();
+    $output[] = '<p><strong>' . t('[bet365]text[/bet365]') . '</strong> ';
+    if ($long) {
+        $output[] = t('Outputs text that is displayed as a link to bet365') . '</p>';
+    }
+    else {
+        $output[] = t('Outputs text that links to bet365 with the affiliate link.') . '</p>';
+    }
+
+    return implode(' ', $output);
+
+}
+

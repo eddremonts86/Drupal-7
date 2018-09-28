@@ -1,0 +1,6 @@
+name = Rebel Penguin Affiliate Shortcodes
+description = Provides custom shortcode tags to be used within site content, that replace custom codes with affiliate links
+package = Shortcode
+core = 7.x
+dependencies[] = filter
+dependencies[] = shortcode

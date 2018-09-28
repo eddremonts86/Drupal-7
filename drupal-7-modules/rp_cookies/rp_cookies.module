@@ -1,0 +1,125 @@
+<?php
+
+
+function rp_cookies_init()
+{   //LOAD JS TO FRONTEND
+    if (!geturlvalidation()) {
+
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/liberiess/jquery-2.2.4.min.js', 'file');
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/liberiess/bootstrap.min.js', 'file');
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/liberiess/bootstrap-slider.js', 'file');
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/liberiess/cookieconsent.min.js', 'file');
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/liberiess/js.cookie.min.js', 'file');
+
+        drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/custom/footerCookiesbar.js', 'file');
+
+
+        drupal_add_css(drupal_get_path('module', 'rp_cookies') . '/css/liberiess/bootstrap.min.css');
+        drupal_add_css(drupal_get_path('module', 'rp_cookies') . '/css/liberiess/bootstrap-slider.min.css');
+        drupal_add_css(drupal_get_path('module', 'rp_cookies') . '/css/liberiess/cookieconsent.min.css');
+        drupal_add_css(drupal_get_path('module', 'rp_cookies') . '/css/custom/css.css');
+
+        if (geturlvalidation('cookies')) {
+            drupal_add_js(drupal_get_path('module', 'rp_cookies') . '/js/custom/pageCookies.js', 'file');
+            $id = rand(155421, 65468464);
+            $data = array(
+                '#type' => 'html_tag',
+                '#tag' => 'meta',
+                '#attributes' => array(
+                    'name' => 'robots',
+                    'content' => 'noindex, nofollow',
+                ),
+            );
+            drupal_add_html_head($data, $id);
+        }
+    }
+}
+function geturlvalidation($tofaind = null){
+    $url = request_uri();
+    $url = explode('/',$url);
+    $defoultArray = [
+        'admin',
+        'add',
+        'edit',
+        'edit?destination=admin',
+        'config',
+	'content'
+	
+      ];
+    if(isset($tofaind)){
+        $defoultArray[]=$tofaind;
+    }
+
+    foreach ($defoultArray as $data){
+        if(in_array($data,$url)){
+            return true;
+        }
+    }
+    if(@$_GET['edit']){
+        return true;
+    }
+    return false;
+}
+
+
+function rp_cookies_menu()
+{
+    $items['cookies'] = array(
+        'type' => MENU_NORMAL_ITEM,
+        'title' => t('Title'),
+        'description' => 'My custom and very special page',
+        'page callback' => 'rp_cookies_special_page',
+        'access callback' => 'user_access',
+        'access arguments' => array('access content'),
+    );
+    return $items;
+}
+
+/**
+ * Page callback.
+ */
+function rp_cookies_special_page()
+{
+    $panelTitle = "Dina val gällande cookies på denna webbplats";
+    $panelTitleSubheader = "Cookies är viktiga för att en webbplats ska fungera korrekt. För att förbättra din upplevelse, använder vi cookies för att komma ihåg inloggningsuppgifter och tillhandahålla säker inloggning, samla in statistik för att optimera webbplatsfunktionalitet och leverera innehåll skräddarsydd för dina intressen. Klicka på ”Godkänn och fortsätt” för att acceptera cookies och gå direkt till webbplatsen. Olika typer av cookies förklaras i vår sekretesspolicy och cookiepolicy. Du kan välja huruvida du vill acceptera vissa cookies medan du är på webbplatsen:";
+    $cookies_req = "Nödvändiga cookies";
+    $cookies_req_text = "Dessa cookies är nödvändiga för att aktivera kärnfunktioner på webbplatsen, specifikt för att se till att webbplatsen ser konsekvent ut.";
+    $cookies_opc = "Funktions- och reklamcookies";
+    $cookies_opc_text = "Dessa cookies tillåter oss att analysera användningen av webbplatsen så att vi kan mäta och förbättra prestanda.";
+    $agree = "Jag accepterar";
+
+    $content = ' 
+    <div class="container cookies_form">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 id="cookies_title" class="panel-title">'.$panelTitle.'<br>
+                    <small>'.$panelTitleSubheader.'</small>
+                     <br> 
+                </div>
+                <div class="panel-body panel_body_padding">
+                    <div class="def_conf">
+                        <div class="pull-left" id="cookies_labels">
+                            <span id="cookies_c" class="hidden">cookies levels</span>
+                            <input id="ex19" type="text" data-slider-ticks="[1, 2]">
+                        </div>
+                        <div id="cookies_content" class="pull-right">                            
+                            <div>
+                                <h4 id="cookies_requiered">'.$cookies_req.'</h4>
+                                <ul><li>'.$cookies_req_text.'</li></ul>
+                                <h4 id="cookies_optional">'.$cookies_opc.'</h4>
+                                <ul><li>'.$cookies_opc_text.'</li></ul>
+                          </div>
+                        </div>
+                    </div>                       
+                    <input id="aggree" class="btn btn-primary pull-right" type="submit" value="'.$agree.'"></h3>
+            </div></div>
+        </div>
+    </div>
+</div>';
+    return $content;
+}
+
+
+
