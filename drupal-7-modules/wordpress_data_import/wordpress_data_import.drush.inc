@@ -1,6 +1,7 @@
 
 <?php
 require_once dirname(__FILE__).'/src/includes/importdatawordpress.php';
+
 /**
  * @file
  * Drush integration for the redirect module.
@@ -28,14 +29,14 @@ function wordpress_data_import_drush_command() {
     'description' => 'Demonstrate how Drush commands work.',
     'callback' => 'drush_delete',
     'aliases' => array('deleteOldArticles'));
-
-
-  return $items;
+    return $items;
 }
 
 /**
  * Command callback.
  */
+
+
 function drush_IDFWpres($context) {
   $obj = new importdatawordpress();
   $obj->getPost($context);
